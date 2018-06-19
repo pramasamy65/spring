@@ -13,6 +13,10 @@ This Spring module will have following stuffs
 
 git clone https://github.com/pramasamy65/spring.git
 
+OR
+
+Git init
+
 cd -> got the Application folder
 
 git add *.java
