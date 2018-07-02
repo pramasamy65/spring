@@ -3,21 +3,25 @@
 https://app.pluralsight.com/player?course=springmvc-intro&author=bryan-hansen&name=springmvc-m1-intro&clip=2&mode=live
 
 What is Spring MVC ?
+
 	Web framework build around Spring
 	Based on Front controller pattern(Dispatcher servlet)
 	Build from shortcomings of Struts 1
 	Spring MVC can be REST based/ JSP based
 	
 Architecture
+
 	Spring MVC/Spring frameworks are based on Java servlets/J2EE
 	
 Request/Response LifeCycle
+
 	Incoming Request->Front Controller-> Delegate Request to CONTROLLER
 	Controller will handle the request the and if it requires then delegate to backend and get the model
 	Based on the model(which is returned by the controller), Front controller will consult with "View Template" and get the view
 	Finally front controller will return the view as a response
 
 Vocabulary
+
 	DispatcherServlet
 	Controller - Handles the request and determines which view to route
 	RequestMapping - URL mapping and request type the method is tied to 
@@ -26,6 +30,7 @@ Vocabulary
 	
 	
 Spring MVC
+
 	Web framework build around the principles of Spring
 	Based on Dispatcher Servlet/Front Controller pattern
 	Spring is based on Java Servlets/JEE
@@ -37,6 +42,7 @@ Spring MVC
 	FC will pass the model to View template and View template will populate the values in jsp pages using model
 
 Annotations
+
 	<mvc:annotation-driven/> - Using annotation to configure our applications
 	<context:component-scan base-package="com...."/>
 	@Controller
@@ -48,6 +54,7 @@ Annotations
 	
 	
 Components
+
 	@Controllers
 		Handling incoming requests and building Response
 		Transform user inputs into model
@@ -104,6 +111,7 @@ Externalize the String in JSP pages Using Message tag
 			
 	
 Views
+
 	WEB-INF/jsp/... -> Security reasons -> access by routed through our applications via controller
 	Multiple view resolvers available 
 		Tiles view Resolver
@@ -126,6 +134,7 @@ Views
 		<mvc:resources location="/WEB-INF/pdfs/" mapping="/static/**/"></mvc:resources> --> loading static resources
 			
 Interceptors
+
 	Registered part of the request lifecycle
 	Part of Request life cycle will be called before reaching to controller
 	Having ability to handle pre-handle and post-handle web requests
@@ -137,6 +146,7 @@ Interceptors
 				Above line will be used to select the current locale used for current session
 	
 Spring Internationalization using interceptor
+
 	<mvc:interceptors>
 		<bean id="localeChangeInterceptor"
 			class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
@@ -145,16 +155,19 @@ Spring Internationalization using interceptor
 	</mvc:interceptors>
 	
 Spring form tags
+
 	Checkbox, form, hidden, input, label, 
 	Bind objects from our model into Views
 	Easily bind errors
 	
 @SessionAttributes("goal")
+
 	When developing web applications, we often need to refer to the same attributes in several views. For example, we may have shopping cart contents that need to be displayed on multiple pages.
 	A good location to store those attributes is in the user’s session
 	we declare it as a @ModelAttribute and specify the @SessionAttributes annotation to scope it to the session for the controller
 
 @ModelAttribute
+
 	It's an annotation that binds a method parameter or method return value to a named model attribute and then exposes it to a web view.
 	
 	@ModelAttribute - At the Method Level
@@ -168,6 +181,7 @@ Spring form tags
 		model attribute is populated with data from a form submitted
 	
 Validation
+
 	Constraint validation -> Like fields validation. password, email format etc...
 	Business logic validation -> Should be in service layer
 	
