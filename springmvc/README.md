@@ -1,4 +1,4 @@
-# Spring-Mvc
+# Spring-MVC
 
 https://app.pluralsight.com/player?course=springmvc-intro&author=bryan-hansen&name=springmvc-m1-intro&clip=2&mode=live
 
