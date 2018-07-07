@@ -17,7 +17,8 @@ Request/Response LifeCycle
 
 	Incoming Request->Front Controller-> Delegate Request to CONTROLLER
 	Controller will handle the request the and if it requires then delegate to backend and get the model
-	Based on the model(which is returned by the controller), Front controller will consult with "View Template" and get the view
+	Based on the model(which is returned by the controller), Front controller will consult with "View Template" 
+	and get the view
 	Finally front controller will return the view as a response
 
 Vocabulary
@@ -27,7 +28,6 @@ Vocabulary
 	RequestMapping - URL mapping and request type the method is tied to 
 	ViewResolver - Map to respective views(JSP or other technology)
 	Bean - Spring configured POJO
-	
 	
 Spring MVC
 
@@ -51,7 +51,6 @@ Annotations
 	view -> ${Key}
 	ModelView
 	InternalResourceViewResolver -> Prefix and Suffix
-	
 	
 Components
 
@@ -143,7 +142,7 @@ Interceptors
 		JSP <a href="?language=en">English</a> | <a href="?language=es">Spanish</a>
 		Config <bean id="localeResolver" class="org.springframework.web.servlet.i18n.sessionLocaleResolver"
 					p:defaultLocale="en"></bean>
-				Above line will be used to select the current locale used for current session
+		Above line will be used to select the current locale used for current session
 	
 Spring Internationalization using interceptor
 
@@ -162,20 +161,24 @@ Spring form tags
 	
 @SessionAttributes("goal")
 
-	When developing web applications, we often need to refer to the same attributes in several views. For example, we may have shopping cart contents that need to be displayed on multiple pages.
+	When developing web applications, we often need to refer to the same attributes in several views. For example, 
+	we may have shopping cart contents that need to be displayed on multiple pages.
 	A good location to store those attributes is in the user’s session
-	we declare it as a @ModelAttribute and specify the @SessionAttributes annotation to scope it to the session for the controller
+	we declare it as a @ModelAttribute and specify the @SessionAttributes annotation to scope it to the session 
+	for the controller
 
 @ModelAttribute
 
-	It's an annotation that binds a method parameter or method return value to a named model attribute and then exposes it to a web view.
+	It's an annotation that binds a method parameter or method return value to a named model attribute and then 
+	exposes it to a web view.
 	
 	@ModelAttribute - At the Method Level
 	public void addAttributes(Model model) {
    		 model.addAttribute("msg", "Welcome to the Netherlands!");
 	}
-	@ModelAttribute methods are invoked before the controller methods annotated with @RequestMapping are invoked. The logic behind the sequence is that, the model object has to be created before any processing starts inside the controller methods
-	
+	@ModelAttribute methods are invoked before the controller methods annotated with @RequestMapping are invoked. 
+	The logic behind the sequence is that, the model object has to be created before any processing starts 
+	inside the controller methods
 	
 	@ModelAttribute - Method Argument
 		model attribute is populated with data from a form submitted
@@ -196,7 +199,62 @@ Validation
 		public String updateGoal(@Valid @ModelAttribute("goal") Goal goal, BindingResult result) {
 			- binding the validation to the model Goal and result will be present in BindingResult
 
-		
+@Configuration - servlet.xml	
 
+<mvc:annotation-driven /> or @EnableWebMvc
 	
+	Supports MVC related annotations like @RequestMapping, @ResponseBody, @RequestBody
 	
+<context:annotation-config />
+	
+	Wire/Inject them if its registered
+	Supports Spring related Config like @AutoWiring, @Required, @Qualifier
+	Activates the bean which is already registered in the application Context
+	
+	It mainly activates the 4 types of BeanPostProcessors
+		CommonAnnotationBeanPostProcessor : @PostConstruct, @PreDestroy, @Resource
+		AutowiredAnnotationBeanPostProcessor : @Autowired, @Value, @Inject, @Qualifier, etc
+		RequiredAnnotationBeanPostProcessor : @Required annotation
+		PersistenceAnnotationBeanPostProcessor :@PersistenceUnit and @PersistenceContext annotations
+	
+<context:component-scan> or @ComponentScan(basepackages={... , ...})
+	
+	Create Beans and wire/inject them automatically
+	Register the bean + Activates the Bean
+	<context:component-scan> = <context:annotation-config>+Bean Registration
+	
+@RequestBody and @ResponseBody
+	
+	Object serialization(@ResponseBody) and deserialization(@RequestBody)
+	Will help to avoid boiler-plate code for message conversion
+	These annotations used to convert the request and response on the fly using Message Converters
+ 	
+	@RequestBody or @ResponseBody annotations loops through all registered HttpMessageConverters seeking for the 
+	 first  that fits the given mime type and class and then uses it for the actual conversion
+	
+HTTP Message Converters(HMC)
+
+	Spring Receive request from client -> See content-type header(MIMIE Type) -> HMC will convert to Java 
+	Object/entity  based on content Type
+	
+	Spring send request to client -> See Accept header from client -> HMC will convert from Java Object/entity  
+	to response based on accept header
+	
+	MIME Type -> application/json, application/xml etc...
+	
+	HttpMessageConverters instances are pre-enabled means HttpMessageConverters registered in the background
+		ByteArrayHttpMessageConverter - Convert to Byte Array
+		StringHttpMessageConverter - Conver to String 
+		MappingJackson2HttpMessageConverter - JSON
+		Jaxb2RootElementHttpMessageConverter - XML
+
+Customizing HttpMessageConverters with Spring MVC
+
+	We will also able to write own HTTP message converters
+	@Configuration
+	@EnableWebMvc
+	@ComponentScan("com.doj.restapi.web.controller")
+	public class WebConfiguration extends WebMvcConfigurerAdapter{ }
+	
+	@EnableWebMvc annotation, it automatically registered default Http message converters with application as 
+	listed above according to available library in the class path
