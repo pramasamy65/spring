@@ -262,3 +262,43 @@ Customizing HttpMessageConverters with Spring MVC
 	
 	@EnableWebMvc annotation, it automatically registered default Http message converters with application as 
 	listed above according to available library in the class path
+	
+ContentNegotiatingViewResolver
+	
+	Will be used to return different return types with same code
+	Return various content types from our application based on the request
+	Use "Accept" header to determine the content type from Requests like XML, JSON, HTML
+	Can be combined with multiple view resolvers --> need to maintain the order
+	
+	Basically we are using internal view resolver and in additional to that we can use 
+	JSON/XML based content View Resolvers
+	
+	servlet-config.xml
+	
+	Change the internal view resolver order to 2 and ContentNegotiatingViewResolver order to 1
+	<bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+	    <property name="order" value="2">
+	    <property name="contentNegotiationManager">
+		<bean class="org.springframework.web.accept.ContentNegotiationManager">
+		    <constructor-arg>
+			<bean class="org.springframework.web.accept.PathExtensionContentNegotiationStrategy">
+			   <constructor-arg>
+				<map>
+					<entry key="json" value="application/json" />
+					<entry key="xml" value="application/xml" />
+				</map>
+			   </constructor-arg>
+			</bean>
+		    </constructor-arg>
+		</bean>
+	   </property>
+	   <property name="defaultViews">
+		<list>
+			<bean class="org.springframework.web.servlet.view.json.MappingJacksonJsonView"/>
+			<bean class="org.springframework.web.servlet.view.xml.MarshallingView"/>
+					......
+					......				
+		</list>		
+	  </property>
+	</bean>
+	
