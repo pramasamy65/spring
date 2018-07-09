@@ -163,6 +163,10 @@ Spring form tags
 
 	When developing web applications, we often need to refer to the same attributes in several views. For example, 
 	we may have shopping cart contents that need to be displayed on multiple pages.
+	
+	The @ModelAttribute and @SessionAttributes strategy for storing an attribute in the session is a 
+	straightforward solution that requires no additional context configuration or Spring-managed @Beans
+	
 	A good location to store those attributes is in the user’s session
 	we declare it as a @ModelAttribute and specify the @SessionAttributes annotation to scope it to the session 
 	for the controller
@@ -193,13 +197,13 @@ Validation
 		<form:errors path="*" cssClass="errorblock" element="div"></form:errors>
 			minutes - Filed name
 	Model
-		@Range(min = 1, max = 60)
+		@Range(min = 1, max = 60) -> POJO Field level Configuration
 	
 	Controller
 		public String updateGoal(@Valid @ModelAttribute("goal") Goal goal, BindingResult result) {
 			- binding the validation to the model Goal and result will be present in BindingResult
 
-@Configuration - servlet.xml	
+@Configuration - servlet.xml java based Config
 
 <mvc:annotation-driven /> or @EnableWebMvc
 	
