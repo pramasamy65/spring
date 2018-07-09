@@ -8,6 +8,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Add Minutes Page</title>
+<script type="text/javascript" src="jquery-3.3.1.js"></script>
 </head>
 <body>
 	<h1>Add Minutes Handson</h1>
@@ -20,12 +21,13 @@
 			<tr>
 				<td><spring:message code="goal.text" /></td>
 				<td><form:input path="minutes" /></td>
+				<td><form:select id="activities"></form:select></td>
 			</tr>
 			<tr>
 				<td colspan="2"><input type="submit" value="submit"></td>
 			</tr>
 		</table>
 	</form:form>
-<h1>Our Goal For the day : ${goal.minutes} </h1>
+	<h1>Our Goal For the day : ${goal.minutes}</h1>
 </body>
 </html>
