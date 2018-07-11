@@ -25,7 +25,7 @@
 		<form:errors path="*" cssClass="errorblock" element="div"></form:errors>
 		<table>
 			<tr>
-				<td>Enter Goal in Minutes</td>
+				<td>Enter Goal for the day in Minutes</td>
 				<td><form:input path="minutes" /></td>
 				<td><form:errors path="minutes" cssClass="error"></form:errors>
 				</td>
