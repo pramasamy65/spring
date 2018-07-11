@@ -2,6 +2,9 @@
 
 https://app.pluralsight.com/player?course=springmvc-intro&author=bryan-hansen&name=springmvc-m1-intro&clip=2&mode=live
 
+http://localhost:8080/springmvc/addGoal
+
+
 What is Spring MVC ?
 
 	Web framework build around Spring
@@ -235,6 +238,8 @@ Validation
  	
 	@RequestBody or @ResponseBody annotations loops through all registered HttpMessageConverters seeking for the 
 	 first  that fits the given mime type and class and then uses it for the actual conversion
+	 
+	 Whenever you use the @ResponseBody, @RequestBody annotation you will be using a HttpMessageConverter 
 	
 HTTP Message Converters(HMC)
 
@@ -273,11 +278,15 @@ ContentNegotiatingViewResolver
 	Basically we are using internal view resolver and in additional to that we can use 
 	JSON/XML based content View Resolvers
 	
+   CNVR Option 1 – using the extension	
+	
 	servlet-config.xml
 	
 	Change the internal view resolver order to 2 and ContentNegotiatingViewResolver order to 1
+	
 	<bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
-	    <property name="order" value="2">
+	
+	    <property name="order" value="1">
 	    <property name="contentNegotiationManager">
 		<bean class="org.springframework.web.accept.ContentNegotiationManager">
 		    <constructor-arg>
@@ -286,6 +295,7 @@ ContentNegotiatingViewResolver
 				<map>
 					<entry key="json" value="application/json" />
 					<entry key="xml" value="application/xml" />
+					<entry key="request" value="text/html" />
 				</map>
 			   </constructor-arg>
 			</bean>
@@ -296,9 +306,64 @@ ContentNegotiatingViewResolver
 		<list>
 			<bean class="org.springframework.web.servlet.view.json.MappingJacksonJsonView"/>
 			<bean class="org.springframework.web.servlet.view.xml.MarshallingView"/>
-					......
-					......				
+				<constructor-arg>
+					<bean class="org.springframework.oxm.jaxb.Jaxb2Marshaller">
+						<property name="classesToBeBound">
+							<list>
+								<value>com.intertech.domain.Contact</value>
+							</list>
+						</property>
+					</bean>
+				</constructor-arg>				
 		</list>		
 	  </property>
 	</bean>
 	
+	http://localhost:8080/springmvc/activities.json will return JSON contnet 
+	http://localhost:8080/springmvc/activities.xml will return XML content
+	http://localhost:8080/springmvc/activities.request will return HTML content
+	
+	CNVR inspects the incoming URL for a URL extension (.request, .json or .xml in our case) and then uses the 
+	mediaType list to match the extension to a media type.  
+	
+	With an established media type, the CNVR looks for an appropriate view resolver/view bean to produced the 
+	requested media type
+	
+   CNVR Option 2 – using a URL parameter
+   
+   	URL query parameter (called format by default) is provided in the request, then the parameter value in the request 
+	is used to select the media type of the request in the mediaList
+	
+	http://localhost:8080/springmvc/activities?format=json will return JSON contnet 
+	http://localhost:8080/springmvc/activities?format=xml will return XML content
+
+	... per original configuration
+	
+	<property name="mediaTypes">
+    	<map>
+     	 	<entry key="json" value="application/json" />
+      		<entry key="xml" value="application/xml" />
+      		<entry key="request" value="text/html" />
+    	</map>
+ 	</property>
+  	<property name="favorPathExtension" value="false" />
+  	<property name="favorParameter" value="true" />
+  	<property name="defaultViews">
+	
+	... per original configuration
+	
+   Option 3 – use the accept header
+   
+   	HTTP request’s accept header to determine the appropriate response content.  
+	If the CNVR’s ignoreAcceptHeader parameter is set to false (true by default)
+	
+	... per original configuration
+   
+    	<property name="order" value="1" />
+  	<property name="ignoreAcceptHeader" value="false" />
+  	<property name="defaultViews">
+	
+	... per original configuration
+	
+	
+
