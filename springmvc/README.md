@@ -365,5 +365,30 @@ ContentNegotiatingViewResolver
 	
 	... per original configuration
 	
+Using Jquery
 	
-
+	JQuery will be used to Easily consumes JSON data and Create HTML pages on the Fly
+	
+	<script type="text/javascript" src="jquery-3.3.1.js"></script>
+	
+	<script type="text/javascript">
+	$(document).ready(function() {
+		//$.getJSON('http://localhost:8080/springmvc/activities', {
+		 $.getJSON('<spring:url value="activities"/>', {
+		     ajax : 'true'
+		     }, function(response) {
+			    console.log(response);
+			    var html = '<option value = "">--Please select one--</option>';
+				$.each(response, function(key, val) {
+					console.log(val.description);
+					html = html + '<option value="' + val.description + '">' + 
+					val.description + '</option>';
+				});
+			    $('#activities').html(html);
+		});
+	});
+	</script>
+	
+	<td><form:select id="activities" path="activity"></form:select></td>
+	
+	
