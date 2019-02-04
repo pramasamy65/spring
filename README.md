@@ -11,6 +11,9 @@ This Spring module will have following stuffs
 
 # Commands
 
+git config --global user.name "Prakash"
+git config --global user.email "test@qwer4.com"
+
 git clone https://github.com/pramasamy65/spring.git
 
 OR
