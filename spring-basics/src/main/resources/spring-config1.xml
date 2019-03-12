@@ -1,0 +1,13 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="messenger" class="com.java.handson.spring_basics1.Messenger">
+		<property name="service" ref="smsService" />
+	</bean>
+
+	<bean id="emailService" class="com.java.handson.spring_basics1.EmailMessageService"></bean>
+	<bean id="smsService" class="com.java.handson.spring_basics1.SmsMessageService"></bean>
+
+</beans>
