@@ -1,0 +1,11 @@
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# IDE workspace details
+.settings
+/target
+.classpath
+.project
+
+# System Files
+.DS_Store
+Thumbs.db
