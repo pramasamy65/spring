@@ -9,6 +9,7 @@
 	<bean id="messenger" class="com.java.handson.spring_basics1.Messenger">
 		<property name="service" ref="smsService" />
 		<property name="receiverDetails" value="Steve Jobs... " />
+		<constructor-arg value="Hi "></constructor-arg>
 	</bean>
 
 </beans>

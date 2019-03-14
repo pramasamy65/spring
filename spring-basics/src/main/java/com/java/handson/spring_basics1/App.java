@@ -26,7 +26,6 @@ public class App {
 
 		// ApplicationContext context = new
 		// ClassPathXmlApplicationContext("spring-config1.xml");
-		
 		Messenger messangerObj = (Messenger) context.getBean("messenger");
 		messangerObj.messageProcessing();
 	}

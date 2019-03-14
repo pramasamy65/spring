@@ -2,7 +2,13 @@ package com.java.handson.spring_basics1;
 
 public class Messenger {
 
+	String message;
+	private String receiverDetails;
 	private MessageService service;
+
+	public Messenger(String message) {
+		this.message = message;
+	}
 
 	public MessageService getService() {
 		return service;
@@ -12,19 +18,17 @@ public class Messenger {
 		this.service = service;
 	}
 
-	private String receiverDetails;
-
-
-	public void messageProcessing() {
-		service.sendMessage(receiverDetails);
-	}
-
 	public String getReceiverDetails() {
 		return receiverDetails;
 	}
 
 	public void setReceiverDetails(String receiverDetails) {
 		this.receiverDetails = receiverDetails;
+	}
+
+	public void messageProcessing() {
+		System.out.println("Message : " + message);
+		service.sendMessage(receiverDetails);
 	}
 
 }
