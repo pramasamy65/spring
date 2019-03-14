@@ -4,8 +4,8 @@
 * STEP 1 : Normal way of Injecting Dependency - without Spring
 * STEP 2 : Implementing DI using Spring - Bean Factory container
 * STEP 3 : Implementing DI using Spring - Application Context Container
-* STEP 4 : Property Initialization
-	> <property name="receiverDetails" value="Steve Jobs... " />
+* STEP 4 : Property Initialization in Config file(XML)
+	```<property name="receiverDetails" value="Steve Jobs... " /> ```
 	
 ### Concepts (com.java.handson.spring_basics1)
 * Spring Container
