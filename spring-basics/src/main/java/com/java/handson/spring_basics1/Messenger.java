@@ -12,8 +12,19 @@ public class Messenger {
 		this.service = service;
 	}
 
+	private String receiverDetails;
+
+
 	public void messageProcessing() {
-		service.sendMessage("Steve Jobs");
+		service.sendMessage(receiverDetails);
+	}
+
+	public String getReceiverDetails() {
+		return receiverDetails;
+	}
+
+	public void setReceiverDetails(String receiverDetails) {
+		this.receiverDetails = receiverDetails;
 	}
 
 }
