@@ -6,8 +6,10 @@ public class Messenger {
 	private String receiverDetails;
 	private MessageService service;
 
-	public Messenger(String message) {
+	public Messenger(String message, MessageService service) {
+		System.out.println("Messenger 2 Args Constructor");
 		this.message = message;
+		this.service = service;
 	}
 
 	public MessageService getService() {
@@ -15,6 +17,7 @@ public class Messenger {
 	}
 
 	public void setService(MessageService service) {
+		System.out.println("Setter Injection");
 		this.service = service;
 	}
 

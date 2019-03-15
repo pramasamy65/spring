@@ -20,12 +20,13 @@ public class App {
 		// messangerObj.setService(new SmsMessageService());
 
 		// STEP 2 : Implementing using Spring - Bean Factory container
-		BeanFactory context = new XmlBeanFactory(new FileSystemResource("spring-config1.xml"));
+		
+		// BeanFactory context = new XmlBeanFactory(new
+		// FileSystemResource("spring-config1.xml"));
 
 		// STEP 3 : Implementing using Spring - Application Context Container
 
-		// ApplicationContext context = new
-		// ClassPathXmlApplicationContext("spring-config1.xml");
+		ApplicationContext context = new ClassPathXmlApplicationContext("spring-config1.xml");
 		Messenger messangerObj = (Messenger) context.getBean("messenger");
 		messangerObj.messageProcessing();
 	}
