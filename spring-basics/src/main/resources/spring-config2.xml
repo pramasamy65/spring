@@ -1,0 +1,15 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<bean id="emailService"
+		class="com.java.handson.spring_basics1.EmailMessageService"></bean>
+	<bean id="smsService"
+		class="com.java.handson.spring_basics1.SmsMessageService"></bean>
+
+	<!-- STEP 1 : Initializing Collections - List -->
+	<!-- <bean id="messenger" class="com.java.handson.spring_basics1.Messenger"> 
+		<property name="serviceList" /> <list> <ref bean="emailService"></ref> <ref 
+		bean="smsService"></ref> </list> </bean> -->
+</beans>
