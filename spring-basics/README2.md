@@ -4,13 +4,15 @@
 
 * STEP 1 : Initializing Collections  - List
 	
-	```<bean id="messenger" class="....Messenger">
+	```
+	<bean id="messenger" class="....Messenger">
 		<property name="serviceList" />
 		<list>
 			<ref bean="emailService"></ref>
 			<ref bean="smsService"></ref>
 		</list>
-	</bean>```
+	</bean>
+	```
 
 	
 ### Concepts (com.java.handson.spring_basics2)
