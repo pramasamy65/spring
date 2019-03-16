@@ -6,19 +6,25 @@
 * STEP 3 : Implementing DI using Spring - Application Context Container
 * STEP 4 : Property Initialization in Config file(XML) using Setter Injection
 
-	```<property name="receiverDetails" value="Steve Jobs... " /> ```
+	```
+	<property name="receiverDetails" value="Steve Jobs... " />
+	```
 	
 * STEP 5 : Property Initialization in Config file(XML) using Constructor Injection
 
 * STEP 5 : Inner Beans
-	```<bean id="messenger" class="....Messenger">```
-		```<property name="service">```
-			```<bean class="...."></bean>```
-		```</property>```
-	```</bean>```
+	```
+	<bean id="messenger" class="....Messenger">
+		<property name="service">
+			<bean class="...."></bean>
+		</property>
+	</bean>
+	```
 	
 * STEP 6 : Aliases
-	```<alias name="messenger" alias="messenger-alias">```
+	```
+	<alias name="messenger" alias="messenger-alias">
+	```
 * STEP 7 : idref
 	* ref point to another bean reference or another alias reference
 	* But idref refer only ID ref bean

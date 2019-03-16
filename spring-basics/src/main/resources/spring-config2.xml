@@ -3,13 +3,23 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
 	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
-	<bean id="emailService"
-		class="com.java.handson.spring_basics1.EmailMessageService"></bean>
-	<bean id="smsService"
-		class="com.java.handson.spring_basics1.SmsMessageService"></bean>
+	<bean id="messageService"
+		class="com.java.handson.spring_basics2.EmailMessageService"></bean>
 
-	<!-- STEP 1 : Initializing Collections - List -->
-	<!-- <bean id="messenger" class="com.java.handson.spring_basics1.Messenger"> 
-		<property name="serviceList" /> <list> <ref bean="emailService"></ref> <ref 
-		bean="smsService"></ref> </list> </bean> -->
+
+	<!-- STEP 5 : Auto wiring by name -->
+
+	<!-- <bean id="messenger1" class="com.java.handson.spring_basics2.Messenger" 
+		autowire="byName"></bean> -->
+
+	<!-- STEP 6 : Auto wiring by Type -->
+
+	<!-- <bean id="messenger2" class="com.java.handson.spring_basics2.Messenger" 
+		autowire="byType"></bean> -->
+		
+	<!-- STEP 7 : Auto wiring by constructor -->
+
+	<bean id="messenger"
+		class="com.java.handson.spring_basics2.Messenger"
+		autowire="constructor"></bean>
 </beans>

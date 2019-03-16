@@ -14,14 +14,84 @@
 	</bean>
 	```
 
+* STEP 2 : Initializing Collections  - Set
+
+	```
+	<bean id="messenger" class=".....Messenger">
+		<property name="serviceSet">
+		<set>
+			<ref bean="emailService"></ref>
+			<ref bean="smsService"></ref>
+		</set>
+	</bean>
+	```
+	
+* STEP 3 : Initializing Collections  - Map
+
+	```
+	<bean id="messenger" class=".....Messenger">
+		<property name="serviceMap">
+		<map>
+			<entry key="emailService" value-ref="emailService">
+			<entry key="smsService" value-ref="emailService">
+		</map>
+	</bean>
+	```
+	
+* STEP 4 : Initializing Collections  - Property
+
+	```
+	private Properties pros;
+	
+	<bean id="messenger" class=".....Messenger">
+		<property name="serviceProperty">
+		<property>
+			<prop key="" value="">
+		</property>
+	</bean>
+	```
+
+* STEP 5 : Auto wiring by name - Reference : spring-config2.xml
+
+* STEP 6 : Auto wiring by type - Reference : spring-config2.xml
+
+* STEP 7 : Auto wiring by constructor - Reference : spring-config2.xml
+
+* STEP 8 : Understanding Bean Scopes
+
+* STEP 9 : Using BeanFactoryAware, ApplicationContextAware & BeanNameAware - Reference : Messenger.java
+
 	
 ### Concepts (com.java.handson.spring_basics2)
 
+* STEP 5- 7 : Auto Wiring
+	* By default there is no auto wiring
+	* Auto wiring Good for small amount of coding
+	
+* STEP 8 : Understanding Bean Scopes
+	* Multiple Spring container will reside in JVM. Bean scopes are specific to container
+	* By default, Spring container will create beans during the container initialization based on config not during getBean() call
+	* Singleton scope="singleton"
+		* Single Object for Spring container. By default all beans are Singleton
+	* Prototype scope="prototype"
+		* Every request, Spring container will create new Objects basically beans
+		* Spring Container will wait for getBean() call and creates the instance not during container initialization time
+	* Web-aware Context Bean Scopes - For Web Application
+		* Request - New Bean per Servlet Request
+		* Session - New Bean per Session
+		* Global Session - Portlet Applications - New bean for Global HTTP session
 
-
+* STEP 9 : Using BeanFactoryAware, ApplicationContextAware & BeanNameAware
+	* BeanFactoryAware
+		*  Used to get the factory objects or Container beans in any where in the application
+	* ApplicationContextAware 
+		* Used to get the context objects or Container beans in any where in the application
+		* Since container loads the context only once using config
+		* Programmatic retrieval of other beans using the application contex
+	* BeanNameAware
+		* When a bean wants it id or name configured in xml file ,then that bean should implements BeanNameAware Inteface and overide a method called setBeanName( String name).
 	
 	
 	
+
 	
-
-
