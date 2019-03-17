@@ -61,6 +61,44 @@
 
 * STEP 9 : Using BeanFactoryAware, ApplicationContextAware & BeanNameAware - Reference : Messenger.java
 
+* STEP 10 : Bean Definition Inheritance  : **Parent and List merge**
+	```
+	
+	<bean id ="parentBean" class=".....">
+		<property name="serviceList">
+		<list>
+			<ref-bean="pointA"
+		<list>
+	</bean>
+	
+	<bean id ="BeanName" class="......" parent="parentBean">
+	<property name="serviceList">
+		<list merge="true">
+			<ref-bean="pointB">
+		<list>
+	</bean>
+	```
+* STEP 11 : Bean Lifecycle Callbacks :
+	* Spring Based Lifecycle Methods
+		* AbstractApplicationContext : Refer App.java
+		* InitializingBean Interface : Refer EmailMessageService.java
+			* afterPropertiesSet() : will be called once beans completed the initialization
+		* DisposableBean : Refer EmailMessageService.java
+	* XML Based Lifecycle Methods
+		* init-method="myInit"
+			*  mention the method name in Bean class
+		* destroy-method="myDestroyCleanUp"
+			*  mention the method name in Bean class
+		* Default init and destroy in Beans level
+			* <beans default-init-method="myInit" default-destroy-method>
+				* No Need to define in method levels instead of that we can define Global level
+		
+		
+		
+	
+
+
+
 	
 ### Concepts (com.java.handson.spring_basics2)
 
@@ -91,7 +129,17 @@
 	* BeanNameAware
 		* When a bean wants it id or name configured in xml file ,then that bean should implements BeanNameAware Inteface and overide a method called setBeanName( String name).
 	
+* STEP 10 : Bean Definition Inheritance  : **Parent and List merge**
+	* Inheritance : Parent
+		* Will Inherit and overridde as well
+	* List merge
+		* Merge with parents property
 	
-	
-
+* STEP 11 : Bean Lifecycle Callbacks 
+	* AbstractApplicationContext
+		* context.registerShutdownHook();
+			* Register a shutdown hook with the JVM runtime, closing this context on JVM shutdown unless it has already been closed at that time
+			* shut down IoC container in non-web applications like desktop based applicaiton
+			
+		
 	
