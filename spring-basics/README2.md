@@ -93,12 +93,6 @@
 			* <beans default-init-method="myInit" default-destroy-method>
 				* No Need to define in method levels instead of that we can define Global level
 		
-		
-		
-	
-
-
-
 	
 ### Concepts (com.java.handson.spring_basics2)
 
@@ -141,5 +135,3 @@
 			* Register a shutdown hook with the JVM runtime, closing this context on JVM shutdown unless it has already been closed at that time
 			* shut down IoC container in non-web applications like desktop based applicaiton
 			
-		
-	
