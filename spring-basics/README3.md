@@ -1,8 +1,9 @@
 # Spring Basics Concepts 3
 
-### Program (com.java.handson.spring_basics3)
+### Program & Concepts (com.java.handson.spring_basics3)
 
-* STEP 1 : Implements BeanPostProcessor
+* STEP 1 : Implements BeanPostProcessor : Refer BeanPostProcessorImp.java
+
 	* Init and Destroy callback methods are part of Spring bean life cycle phases. The init method is going to be executed after bean instantiation. Similarly, The destroy method is going to be executed before bean finalization.
 
 	* We can implement this functionality using implementing interfaces InitializingBean and DisposableBean, or using annotations @postconstruct and @predestroy, or declare the <bean> with init-method and destroy-method attributes.
@@ -20,12 +21,7 @@
 			* @preDestroy or DisposibleBean.destroy() or destroy method which is defining in xml
 			* destroy()
 
-* STEP 2 : Implements BeanFactoryPostProcessor
-	
-	
-### Concepts (com.java.handson.spring_basics3)
-
-* STEP 1 : Implements BeanPostProcessor
-
-* STEP 2 : Implements BeanFactoryPostProcessor
+* STEP 2 : Implements BeanFactoryPostProcessor : Refer BeanFactoryPostProcessorImpl.java
+	* PropertyPlaceholderConfigurer
+		* Before Spring container/factory starts, will read the property config values and used during container initialization
 	

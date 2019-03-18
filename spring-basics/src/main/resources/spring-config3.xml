@@ -11,8 +11,19 @@
 
 	<bean id="messengerObj"
 		class="com.java.handson.spring_basics3.Messenger">
+		<property name="message" value="${message}"></property>
 		<property name="messService" ref="smsMessageService"></property>
 	</bean>
 
 	<bean class="com.java.handson.spring_basics3.BeanPostProcessorImp"></bean>
+
+	<bean
+		class="com.java.handson.spring_basics3.BeanFactoryPostProcessorImpl"></bean>
+
+	<bean
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations"
+			value="placeholderconfig.properties"></property>
+	</bean>
+
 </beans>

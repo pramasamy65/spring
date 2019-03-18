@@ -4,6 +4,16 @@ public class Messenger {
 
 	private MessageService messService;
 
+	private String message;
+
+	public String getMessage() {
+		return message;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
+
 	public Messenger() {
 		System.out.println("Messenger constructor Calling");
 	}
@@ -23,6 +33,7 @@ public class Messenger {
 	}
 
 	public void messageProcessing() {
+		System.out.println("@@@@ : " + message);
 		messService.sendMessage();
 	}
 
