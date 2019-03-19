@@ -52,10 +52,18 @@
 	```
 
 * STEP 5 : Auto wiring by name - Reference : spring-config2.xml
+	* If no bean is found by name then nothing will be injecting and on accessing the Object/property will get NPE
 
 * STEP 6 : Auto wiring by type - Reference : spring-config2.xml
+	* if two types are found then it will throw "No unique bean of type" Exception
+	* If no bean is found by type then nothing will be injecting and on accessing the Object/property will get NPE
 
 * STEP 7 : Auto wiring by constructor - Reference : spring-config2.xml
+	* If no unique/single bean is found by type and name then nothing will be injecting and on accessing the Object/property will get NPE
+	* By Default constructor looks for Simlar Type based injection
+	* Only one type is found then it will inject the dependency
+	* More than one type found then it will try to match with name
+	* More than one type found and there is no name match then nothing will be injected & on accessing the Object/property will get NPE
 
 * STEP 8 : Understanding Bean Scopes
 

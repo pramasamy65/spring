@@ -4,22 +4,26 @@
 	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
 	<bean id="messageService"
-		class="com.java.handson.spring_basics2.EmailMessageService"></bean>
+	class="com.java.handson.spring_basics2.EmailMessageService"></bean>
+
+	<bean id="smsMessageService"
+		class="com.java.handson.spring_basics2.SmsMessageService"></bean>
 
 
 	<!-- STEP 5 : Auto wiring by name -->
 
-	<!-- <bean id="messenger1" class="com.java.handson.spring_basics2.Messenger" 
+	<!-- <bean id="messenger" class="com.java.handson.spring_basics2.Messenger" 
 		autowire="byName"></bean> -->
 
-	<!-- STEP 6 : Auto wiring by Type -->
+	<!--STEP 6 : Auto wiring by Type -->
 
-	<!-- <bean id="messenger2" class="com.java.handson.spring_basics2.Messenger" 
+	<!-- <bean id="messenger" class="com.java.handson.spring_basics2.Messenger" 
 		autowire="byType"></bean> -->
-		
+
 	<!-- STEP 7 : Auto wiring by constructor -->
 
 	<bean id="messenger"
 		class="com.java.handson.spring_basics2.Messenger"
 		autowire="constructor"></bean>
+
 </beans>

@@ -9,6 +9,10 @@ public class Messenger implements ApplicationContextAware, BeanNameAware {
 
 	private MessageService messageService;
 
+	public Messenger() {
+
+	}
+
 	public Messenger(MessageService messageService) {
 		super();
 		System.out.println("Messenger constructor called");
@@ -36,6 +40,6 @@ public class Messenger implements ApplicationContextAware, BeanNameAware {
 
 	public void setBeanName(String beanName) {
 		System.out.println("BeanNameAware ::: setBeanName - Bean Name " + beanName);
-		
+
 	}
 }
