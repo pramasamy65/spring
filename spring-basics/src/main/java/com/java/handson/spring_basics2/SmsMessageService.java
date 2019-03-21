@@ -19,5 +19,10 @@ public class SmsMessageService implements MessageService, DisposableBean, Initia
 		System.out.println("SmsMessageService : DisposableBean ::: destroy()");
 
 	}
+	
+	public void myDestroy() throws Exception {
+		System.out.println("SmsMessageService : myDestroy ::: destroy()");
+
+	}
 
 }

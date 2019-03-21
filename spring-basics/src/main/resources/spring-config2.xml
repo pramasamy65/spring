@@ -6,7 +6,8 @@
 	<bean id="messageService" class="com.java.handson.spring_basics2.EmailMessageService"
 		init-method="init"></bean>
 
-	<bean id="smsMessageService" class="com.java.handson.spring_basics2.SmsMessageService"></bean>
+	<bean id="smsMessageService" class="com.java.handson.spring_basics2.SmsMessageService"
+		scope="prototype" destroy-method="myDestroy"></bean>
 
 
 	<!-- STEP 5 : Auto wiring by name -->

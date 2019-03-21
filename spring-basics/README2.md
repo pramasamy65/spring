@@ -103,7 +103,9 @@
 		* Default init and destroy in Beans level
 			* <beans default-init-method="myInit" default-destroy-method>
 				* No Need to define in method levels instead of that we can define Global level
-	* If XML based and Spring based Life cycle methods defined then First calls the Class level methods and following by XML based init method called
+	
+	* Both XML based config and Spring based Life cycle methods are defined then, first calls the Class level methods and followed by XML based init methods
+	* For prototype Scope, destroy method will not be invoked for both XML and class based Config
 	
 	
 ### Concepts (com.java.handson.spring_basics2)
