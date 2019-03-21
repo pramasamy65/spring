@@ -3,11 +3,10 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
 	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
-	<bean id="messageService"
-	class="com.java.handson.spring_basics2.EmailMessageService"></bean>
+	<bean id="messageService" class="com.java.handson.spring_basics2.EmailMessageService"
+		init-method="init"></bean>
 
-	<bean id="smsMessageService"
-		class="com.java.handson.spring_basics2.SmsMessageService"></bean>
+	<bean id="smsMessageService" class="com.java.handson.spring_basics2.SmsMessageService"></bean>
 
 
 	<!-- STEP 5 : Auto wiring by name -->
@@ -22,8 +21,7 @@
 
 	<!-- STEP 7 : Auto wiring by constructor -->
 
-	<bean id="messenger"
-		class="com.java.handson.spring_basics2.Messenger"
+	<bean id="messenger" class="com.java.handson.spring_basics2.Messenger"
 		autowire="constructor"></bean>
 
 </beans>

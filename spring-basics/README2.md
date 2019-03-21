@@ -87,12 +87,14 @@
 	</bean>
 	```
 * STEP 11 : Bean Lifecycle Callbacks :
+	
 	* Spring Based Lifecycle Methods
 		* AbstractApplicationContext : Refer App.java
 		* InitializingBean Interface : Refer EmailMessageService.java
 			* afterPropertiesSet() : will be called once beans completed the initialization
 		* DisposableBean : Refer EmailMessageService.java
 			* context.registerShutdownHook() is required to perform the clean up activities(DisposableBean)
+	
 	* XML Based Lifecycle Methods
 		* init-method="myInit"
 			*  mention the method name in Bean class
@@ -101,7 +103,8 @@
 		* Default init and destroy in Beans level
 			* <beans default-init-method="myInit" default-destroy-method>
 				* No Need to define in method levels instead of that we can define Global level
-		
+	* If XML based and Spring based Life cycle methods defined then First calls the Class level methods and following by XML based init method called
+	
 	
 ### Concepts (com.java.handson.spring_basics2)
 

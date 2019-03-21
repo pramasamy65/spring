@@ -19,6 +19,11 @@ public class EmailMessageService implements MessageService, InitializingBean, Di
 		
 	}
 	
+	public void init() throws Exception {
+		System.out.println("EmailMessageService :  init : :: afterPropertiesSet()");
+		
+	}
+	
 	public void destroy() throws Exception {
 		System.out.println("EmailMessageService : DisposableBean ::: destroy()");
 		
