@@ -11,9 +11,16 @@
 	* @Autowired ** Refer : Messenger.java **
 	* AutowiredAnnotationBeanPostProcessor ** Refer XML File
 	
-	* Annotate @Autowired in Setter methods or Properties or Constructor first looks for ** TYPE **, 
-	* if single TYPE found then it will wire the dependency
-	* if more than one type found then it will try to match the name and if name matches then it will wire the dependency
+	* Annotate @Autowired in Setter methods or Properties or first looks for ** TYPE **
+	* if one Type found then inject the dependency
+	* If 2 types found then will try to match with name
+	* if name found then it will auto wire the dependency
+	* If there is no name match and if two Types are found then it will throw "No unique bean of type" found exception
+	
+	* Annotate @Autowired in constructor, firsts looks for ** TYPE **
+	* if one Type found then inject the dependency
+	* If 2 types found then will try to match with name
+	* if name found then it will auto wire the dependency
 	* If there is no name match and if two Types are found then it will throw "No unique bean of type" found exception
 	
 * STEP 3 :  @Qualifier Annotation
@@ -23,6 +30,11 @@
 	
 	
 * STEP 4 : JSR-250 Annotations -> Java Specification Annotation not Spring Based
+
+	* @Resource
+	* @PostConstruct
+	* @PreDestroy
+	
 	* How annotations select the right implementation?
 		* @Autowired and @Inject
 			* Matches by Type
