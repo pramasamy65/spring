@@ -3,15 +3,14 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
 	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
-	<bean id="EmailMessageService"
-		class="com.java.handson.spring_basics4.EmailMessageService"></bean>
+	<bean id="messService"
+		class="com.java.handson.spring_basics5.EmailMessageService"></bean>
 
 	<bean id="smsMessageService"
-		class="com.java.handson.spring_basics4.SmsMessageService"></bean>
+		class="com.java.handson.spring_basics5.SmsMessageService"></bean>
 
 	<bean id="messengerObj"
-		class="com.java.handson.spring_basics4.Messenger">
-		<property name="message" value="Hi..."></property>
+		class="com.java.handson.spring_basics5.Messenger">
 	</bean>
 
 	<bean
