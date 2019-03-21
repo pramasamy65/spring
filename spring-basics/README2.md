@@ -92,6 +92,7 @@
 		* InitializingBean Interface : Refer EmailMessageService.java
 			* afterPropertiesSet() : will be called once beans completed the initialization
 		* DisposableBean : Refer EmailMessageService.java
+			* context.registerShutdownHook() is required to perform the clean up activities(DisposableBean)
 	* XML Based Lifecycle Methods
 		* init-method="myInit"
 			*  mention the method name in Bean class
