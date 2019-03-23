@@ -32,6 +32,17 @@
 * STEP 4 : JSR-250 Annotations -> Java Specification Annotation not Spring Based
 
 	* @Resource
+		* @Resource(name="center")
+			* This looks for bean name "center" and will do dependency injection
+		* @Resource
+			```
+			private Point pointC;
+			
+			@Resource
+			Setter() for pointC
+			```
+			
+			* This looks for bean name "pointC" Since there is no name mentioned in @Resource
 	* @PostConstruct
 	* @PreDestroy
 	
