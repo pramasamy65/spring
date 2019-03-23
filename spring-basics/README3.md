@@ -25,3 +25,6 @@
 	* PropertyPlaceholderConfigurer
 		* Before Spring container/factory starts, will read the property config values and used during container initialization
 	
+* STEP 2 : PropertyPlaceholderConfigurer - Refer : spring-config3.xml
+	* A property resource configurer that resolves placeholders in bean property values
+	* If Property not found then will get "Could not resolve placeholder 'message1'"

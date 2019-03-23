@@ -1,5 +1,8 @@
 package com.java.handson.spring_basics5;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class SmsMessageService implements MessageService{
 
 	public void sendMessage() {

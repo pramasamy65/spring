@@ -23,7 +23,7 @@
 	<bean
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="locations"
-			value="placeholderconfig.properties"></property>
+			value="placeholderconfig3.properties"></property>
 	</bean>
 
 </beans>

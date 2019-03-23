@@ -44,7 +44,20 @@
 			
 			* This looks for bean name "pointC" Since there is no name mentioned in @Resource
 	* @PostConstruct
+		```
+		@PostConstruct
+		public void myInit(){
+			...
+		}
+		```
 	* @PreDestroy
+		```
+		@PreDestroy
+		public void myInit(){
+			...
+		}
+		```
+	* @PostConstruct and @PreDestroy are alternate for disposal bean and Destroy bean or XML init-method and destroy-method
 	
 	* How annotations select the right implementation?
 		* @Autowired and @Inject
