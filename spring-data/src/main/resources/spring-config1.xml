@@ -1,0 +1,19 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="emailService"
+		class="com.java.handson.spring_basics1.EmailMessageService"></bean>
+	<bean id="smsService"
+		class="com.java.handson.spring_basics1.SmsMessageService"></bean>
+
+	<bean id="messenger"
+		class="com.java.handson.spring_basics1.Messenger">
+		<property name="service" ref="emailService" />
+		<property name="receiverDetails" value="Steve Jobs... " />
+		<constructor-arg value="Hi"></constructor-arg>
+		<constructor-arg ref="smsService"></constructor-arg>
+	</bean>
+
+</beans>
