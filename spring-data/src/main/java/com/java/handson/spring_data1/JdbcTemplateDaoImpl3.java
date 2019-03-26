@@ -9,6 +9,9 @@ import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -17,6 +20,8 @@ public class JdbcTemplateDaoImpl3 {
 	DataSource dataSource;
 
 	JdbcTemplate jdbcTemplate;
+	
+	NamedParameterJdbcTemplate namedParamJdbcTemplate;
 
 	public DataSource getDataSource() {
 		return dataSource;
@@ -25,11 +30,12 @@ public class JdbcTemplateDaoImpl3 {
 	@Autowired
 	public void setDataSource(DataSource dataSource) {
 		this.jdbcTemplate = new JdbcTemplate(dataSource);
+		this.namedParamJdbcTemplate = new NamedParameterJdbcTemplate(dataSource);
 	}
 
 	public void dataBaseCall()
 			throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException, Exception {
-		int searchParam = 100;
+		int searchParam = 1040;
 		String query = "select id from test where id = ?";
 		String allRowValuesQuery = "select * from test";
 		System.out.println(jdbcTemplate);
@@ -53,6 +59,27 @@ public class JdbcTemplateDaoImpl3 {
 		for (TestVO voObj : voList) {
 			System.out.println(voObj.getId());
 		}
+		
+		// STEP 10 : Performing Write Operations with JdbcTemplate
+		
+		String updateQuery= "insert into test (id) values (?)";
+		
+		jdbcTemplate.update(updateQuery, new Object[]{501});
+		
+		// STEP 11 : Performing Delete Operations with JdbcTemplate
+		
+		String deleteQuery= "delete from test where id = ?";
+		
+		jdbcTemplate.update(deleteQuery, new Object[]{500});
+		
+		// STEP 13 : Named Parameter JDBC Template
+
+		String namedParamQuery = "insert into test values(:id, :name)";
+
+		SqlParameterSource sqlParameterSource = new MapSqlParameterSource("id", 50).addValue("name", "Tester");
+
+		namedParamJdbcTemplate.update(namedParamQuery, sqlParameterSource);
+		
 	}
 
 	class TestRowMapper implements RowMapper<TestVO> {
