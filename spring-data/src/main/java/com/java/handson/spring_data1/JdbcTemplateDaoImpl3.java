@@ -45,17 +45,28 @@ public class JdbcTemplateDaoImpl3 {
 		System.out.println("Get ID Using RowMapper : " + vo.getId());
 
 		// STEP 9 : Implementing RowMapper and returning List
+		
 		List<TestVO> voList = jdbcTemplate.query(allRowValuesQuery, new TestRowMapper());
+		
 		System.out.println("Implementing RowMapper and returning List : " + voList.size());
-		voList.forEach(voObj -> System.out.println(voObj.getId()));
+		
+		for (TestVO voObj : voList) {
+			System.out.println(voObj.getId());
+		}
 	}
 
 	class TestRowMapper implements RowMapper<TestVO> {
 
 		@Override
 		public TestVO mapRow(ResultSet rs, int rowNum) throws SQLException {
+
+			System.out.println("RowNum " + rowNum);
+
 			TestVO vo = new TestVO();
+
+			System.out.println("Fetched Value from Result Set : " + rs.getInt("id"));
 			vo.setId(rs.getInt("id"));
+
 			return vo;
 		}
 
