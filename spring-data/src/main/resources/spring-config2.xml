@@ -21,14 +21,18 @@ http://www.springframework.org/schema/context/spring-context-2.5.xsd">
 
 	<!-- STEP 15 : Using Hibernate with Spring -->
 	<bean id="sessionFactory"
-		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
 		<property name="dataSource" ref="dataSource"></property>
-		<property name="" value="com.java.handson.spring_data1"></property>
-		<property name="h"></property>
-		<props>
-
-		</props>
+		<property name="packagesToScan"
+			value="com.java.handson.spring_data2.Student"></property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.DerbyDialect</prop>
+				<prop key="hibernate.show_sql">true</prop>
+			</props>
+		</property>
 	</bean>
 
+	
 
 </beans>

@@ -32,7 +32,7 @@ public class JdbcTemplateDaoImpl2 {
 		// jdbcTemplate.setDataSource(dataSource);
 
 		System.out.println(jdbcTemplate);
-		int count = jdbcTemplate.queryForInt("select count(*) from test");
+		int count = jdbcTemplate.queryForObject("select count(*) from test", Integer.class);
 		System.out.println("Total Count using JdbcTemplate " + count);
 	}
 

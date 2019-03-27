@@ -9,7 +9,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
 @Component
-public class JdbcTemplateDaoImpl {
+public class JdbcTemplateDaoImpl { 
 
 	@Autowired
 	DataSource dataSource;
@@ -31,7 +31,7 @@ public class JdbcTemplateDaoImpl {
 
 		System.out.println(jdbcTemplate);
 		
-		int count = jdbcTemplate.queryForInt("select count(*) from test");
+		int count = jdbcTemplate.queryForObject("select count(*) from test", Integer.class);
 		System.out.println("Total Count using JdbcTemplate " + count);
 	}
 

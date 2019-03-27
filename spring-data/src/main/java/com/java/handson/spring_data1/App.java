@@ -19,7 +19,7 @@ public class App {
 
 		// jdbcWithoutSpringObj.dataBaseCall();
 
-		// STEP 3 : JDBC With Spring using
+		// STEP 3 : JDBC With Spring using 
 		// org.springframework.jdbc.datasource.DriverManagerDataSource
 
 		// JdbcWithSpring jdbcWithSpringObj = context.getBean("jdbcWithSpring",

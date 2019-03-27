@@ -26,7 +26,7 @@ public class JdbcDaoSupportImpl extends JdbcDaoSupport {
 	}
 
 	public void getCount() {
-		System.out.println(getJdbcTemplate().queryForInt("select count(*) from test"));
+		System.out.println(getJdbcTemplate().queryForObject("select count(*) from test", Integer.class));
 	}
 
 }

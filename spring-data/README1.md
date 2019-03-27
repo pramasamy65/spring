@@ -60,5 +60,3 @@
 	* By extended the JdbcDaoSupport, set the datasource and JdbcTemplate in your class is no longer required, you just need to inject the correct datasource into JdbcCustomeJdbcDaoSupportImplrDAO
 	* And you can get the JdbcTemplate by using a getJdbcTemplate() method.
 	
-* STEP 15 : Using Hibernate with Spring
-	* 

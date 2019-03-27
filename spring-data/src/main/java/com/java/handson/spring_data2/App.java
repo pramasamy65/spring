@@ -8,9 +8,14 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  *
  */
 public class App {
+	
 	public static void main(String[] args) throws Exception {
 
 		ApplicationContext context = new ClassPathXmlApplicationContext("spring-config2.xml");
 
+		HibernateDaoImpl impl = context.getBean("hibernateDaoImpl", HibernateDaoImpl.class);
+
+		impl.getCount();
+		
 	}
 }
