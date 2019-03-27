@@ -29,9 +29,16 @@ public class App {
 
 		// STEP 5 : Using JdbcTemplate
 
-		JdbcTemplateDaoImpl3 jdbcTemplateDaoImpl = context.getBean("jdbcTemplateDaoImpl3", JdbcTemplateDaoImpl3.class);
+		//JdbcTemplateDaoImpl3 jdbcTemplateDaoImpl = context.getBean("jdbcTemplateDaoImpl3", JdbcTemplateDaoImpl3.class);
 
-		jdbcTemplateDaoImpl.dataBaseCall();
+		//jdbcTemplateDaoImpl.dataBaseCall();
+		
+		
+		// STEP 14 : Using JdbcTemplate
+
+		JdbcDaoSupportImpl jdbcTemplateDaoImpl = context.getBean("jdbcDaoSupportImpl", JdbcDaoSupportImpl.class);
+
+		jdbcTemplateDaoImpl.getCount();
 		
 	}
 }

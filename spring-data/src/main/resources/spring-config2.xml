@@ -8,17 +8,8 @@ http://www.springframework.org/schema/context/spring-context-2.5.xsd">
 
 
 	<context:component-scan
-		base-package="com.java.handson.spring_data1" />
+		base-package="com.java.handson.spring_data2" />
 
-	<!-- * STEP 3 : JDBC With Spring using org.springframework.jdbc.datasource.DriverManagerDataSource -->
-	<bean id="dataSource1"
-		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-		<property name="driverClassName"
-			value="org.apache.derby.jdbc.ClientDriver"></property>
-		<property name="url" value="jdbc:derby://localhost:1527/db"></property>
-	</bean>
-
-	<!-- * STEP 4 : JDBC With Spring using org.apache.commons.dbcp.BasicDataSource -->
 	<bean id="dataSource"
 		class="org.apache.commons.dbcp.BasicDataSource">
 		<property name="driverClassName"
@@ -27,5 +18,17 @@ http://www.springframework.org/schema/context/spring-context-2.5.xsd">
 		<property name="initialSize" value="2"></property>
 		<property name="maxActive" value="5"></property>
 	</bean>
+
+	<!-- STEP 15 : Using Hibernate with Spring -->
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"></property>
+		<property name="" value="com.java.handson.spring_data1"></property>
+		<property name="h"></property>
+		<props>
+
+		</props>
+	</bean>
+
 
 </beans>
