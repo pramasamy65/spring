@@ -1,20 +1,27 @@
 package com.java.handson.spring_data2;
 
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import org.hibernate.SessionFactory;
-
 @Repository
 public class HibernateDaoImpl {
-	
+
 	@Autowired
 	private SessionFactory sessionFactory;
-	
+
 	public void getCount() {
-	
-		org.hibernate.Query query = sessionFactory.openSession().createQuery("select * from student");
-		System.out.println(query.uniqueResult());
+
+		Session session = sessionFactory.openSession();
+		Transaction transaction = session.beginTransaction();
+		Student student = (Student) session.get(Student.class, 5);
+
+		System.out.println(student);
+		transaction.commit();
+		session.close();
+
 	}
 
 }
