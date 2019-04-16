@@ -83,7 +83,7 @@ public class EventSummaryProcessor {
 						vo.setEventDescription(currentCell.getStringCellValue());
 						break;
 					case 10:
-						vo.setEventDate(currentCell.getDateCellValue());
+						vo.setEventDate(currentCell.getStringCellValue());
 						break;
 
 					case 11:
@@ -121,7 +121,7 @@ public class EventSummaryProcessor {
 				}
 			}
 			System.out.println("Total event Summary Records in Excel FIle = " + eventSummaryList.size());
-			repository.insert(eventSummaryList);
+			repository.saveAll(eventSummaryList);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {

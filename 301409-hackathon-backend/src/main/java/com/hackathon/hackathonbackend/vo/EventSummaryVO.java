@@ -19,7 +19,7 @@ public class EventSummaryVO {
 	private String category;
 	private String eventName;
 	private String eventDescription;
-	private Date eventDate;
+	private String eventDate;
 	private int totalNoOfVolunteers;
 	private int totalVolunteerHours;
 	private int totalTravelHours;
@@ -111,11 +111,11 @@ public class EventSummaryVO {
 		this.eventDescription = eventDescription;
 	}
 
-	public Date getEventDate() {
+	public String getEventDate() {
 		return eventDate;
 	}
 
-	public void setEventDate(Date eventDate) {
+	public void setEventDate(String eventDate) {
 		this.eventDate = eventDate;
 	}
 

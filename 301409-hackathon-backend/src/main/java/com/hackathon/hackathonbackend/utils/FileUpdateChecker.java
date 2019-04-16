@@ -3,7 +3,6 @@ package com.hackathon.hackathonbackend.utils;
 import java.io.File;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 
 public class FileUpdateChecker {
 
@@ -11,7 +10,7 @@ public class FileUpdateChecker {
 
 	}
 
-	private long getLastModifiedDateInLong(String fileName) throws ParseException {
+	public static long getLastModifiedDateInLong(String fileName) throws ParseException {
 
 		File file = new File(fileName);
 
@@ -20,7 +19,7 @@ public class FileUpdateChecker {
 		return file.lastModified();
 	}
 
-	private String getLastModifiedDateInDateFormat(String fileName) throws ParseException {
+	public static String getLastModifiedDateInDateFormat(String fileName) throws ParseException {
 
 		File file = new File(fileName);
 

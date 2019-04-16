@@ -15,7 +15,7 @@ public class EventInformationVO {
 	private String councilName;
 	private String eventName;
 	private String eventDescription;
-	private Date eventDate;
+	private String eventDate;
 	private int employeeId;
 	private String employeeName;
 	private int volunteerHours;
@@ -73,11 +73,11 @@ public class EventInformationVO {
 		this.eventDescription = eventDescription;
 	}
 
-	public Date getEventDate() {
+	public String getEventDate() {
 		return eventDate;
 	}
 
-	public void setEventDate(Date eventDate) {
+	public void setEventDate(String eventDate) {
 		this.eventDate = eventDate;
 	}
 

@@ -71,7 +71,7 @@ public class EventInformationProcessor {
 						vo.setEventDescription(currentCell.getStringCellValue());
 						break;
 					case 6:
-						vo.setEventDate(currentCell.getDateCellValue());
+						vo.setEventDate(currentCell.getStringCellValue());
 						break;
 					case 7:
 						vo.setEmployeeId((int) currentCell.getNumericCellValue());
@@ -103,7 +103,7 @@ public class EventInformationProcessor {
 				}
 			}
 			System.out.println("Total event Event Info Records in Excel FIle = " + eventInfoList.size());
-			repository.insert(eventInfoList);
+			repository.saveAll(eventInfoList);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
