@@ -3,14 +3,8 @@ package com.hackathon.hackathonbackend.vo;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection="associateDetails")
-public class AssociateDetailsVo {
-
-	@Override
-	public String toString() {
-		return "AssociateDetailsVo [associateId=" + associateId + ", name=" + name + ", designation=" + designation
-				+ ", location=" + location + ", buinessUnit=" + buinessUnit + "]";
-	}
+@Document(collection = "associateDetails")
+public class AssociateDetailsVO {
 
 	@Id
 	private int associateId;
@@ -57,6 +51,12 @@ public class AssociateDetailsVo {
 
 	public void setBuinessUnit(String buinessUnit) {
 		this.buinessUnit = buinessUnit;
+	}
+
+	@Override
+	public String toString() {
+		return "AssociateDetailsVo [associateId=" + associateId + ", name=" + name + ", designation=" + designation
+				+ ", location=" + location + ", buinessUnit=" + buinessUnit + "]";
 	}
 
 }
