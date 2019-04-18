@@ -1,4 +1,4 @@
-package com.hackathon.hackathonbackend;
+package com.hackathon.hackathonbackend.controller;
 
 import java.util.List;
 
