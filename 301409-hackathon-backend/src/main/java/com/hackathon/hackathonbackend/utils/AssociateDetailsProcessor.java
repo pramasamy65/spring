@@ -72,7 +72,7 @@ public class AssociateDetailsProcessor {
 				}
 			}
 			System.out.println("Total AssociateDetails Records in Excel FIle = " + associateList.size());
-			repository.insert(associateList);
+			repository.saveAll(associateList);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {

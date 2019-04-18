@@ -35,3 +35,14 @@ db.fileModificationdetails.find();
 
 db.<collection_name>.drop() -> db.fileModificationdetails.drop()
 
+db.eventInformation.update({'employeeId':287469},{$set:{'employeeName':'Rock'}},{multi:true});
+
+"baseLocation"
+
+eventInformation
+db.eventInformation.update({'baseLocation':'Chennai'},{$set:{'employeeId':287469}},{multi:true});
+
+
+	Aggregation aggregation = Aggregation.newAggregation(
+				Aggregation.match(Criteria.where("employeeId").lt(99999999)),
+				Aggregation.group("employeeId").addToSet("employeeId").as("employeeId").sum("volunteerHours").as("totalVolunteerHours"));
