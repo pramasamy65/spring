@@ -15,7 +15,7 @@ import com.hackathon.hackathonbackend.utils.EventSummaryProcessor;
 import com.hackathon.hackathonbackend.utils.FileUpdateChecker;
 import com.hackathon.hackathonbackend.vo.FileModificationDetailsVO;
 
-public class InitialProcessingCommandLineRunnerImpl implements CommandLineRunner {
+public class CommandLineRunnerTestImpl implements CommandLineRunner {
 
 	@Autowired
 	AssociateDetailsProcessor associateProcessUtil;

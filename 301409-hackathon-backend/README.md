@@ -37,6 +37,9 @@ db.<collection_name>.drop() -> db.fileModificationdetails.drop()
 
 db.eventInformation.update({'employeeId':287469},{$set:{'employeeName':'Rock'}},{multi:true});
 
+db.eventInformation.update({'eventDate':'01-12-18'},{$set:{'eventDate':'01-05-18'}},{multi:true});
+
+
 "baseLocation"
 
 eventInformation
