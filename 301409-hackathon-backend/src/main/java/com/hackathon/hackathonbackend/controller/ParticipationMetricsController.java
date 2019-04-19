@@ -4,9 +4,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.hackathon.hackathonbackend.genericmetric.GenericMetricOutputVo;
@@ -32,8 +31,9 @@ public class ParticipationMetricsController {
 		return headCountList;
 	}
 
-	@PostMapping("/uniqueVolunteeringDetailsByLocation")
-	public List<GenericMetricOutputVo> uniqueVolunteeringDetailsByLocation(@RequestParam("location") String location) {
+	@GetMapping("/uniqueVolunteeringDetailsByLocation/{location}")
+	public List<GenericMetricOutputVo> uniqueVolunteeringDetailsByLocation(@PathVariable(name="location") String location) {
+		
 		List<GenericMetricOutputVo> uniqueVolunteeringDetailsByLocation = participationMetricsCustomRepository
 				.uniqueVolunteeringDetailsByLocation(location);
 		System.out.println(" uniqueVolunteeringDetailsByLocation " + uniqueVolunteeringDetailsByLocation.size());
@@ -41,9 +41,8 @@ public class ParticipationMetricsController {
 		return uniqueVolunteeringDetailsByLocation;
 	}
 
-	@PostMapping("/uniqueVolunteeringDetailsByBU")
-	public List<GenericMetricOutputVo> uniqueVolunteeringDetailsByBU(
-			@RequestParam("businessUnit") String businessUnit) {
+	@GetMapping("/uniqueVolunteeringDetailsByBU/{businessUnit}")
+	public List<GenericMetricOutputVo> uniqueVolunteeringDetailsByBU(@PathVariable(name="businessUnit") String businessUnit) {
 
 		List<GenericMetricOutputVo> uniqueVolunteeringDetailsByBU = participationMetricsCustomRepository
 				.uniqueVolunteeringDetailsByBU(businessUnit);

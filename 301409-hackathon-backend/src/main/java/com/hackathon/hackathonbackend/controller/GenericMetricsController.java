@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -28,8 +29,8 @@ public class GenericMetricsController {
 		return uniqueVolunteeringDetails;
 	}
 
-	@PostMapping("/uniqueVolunteeringDetailsByDay")
-	public List<GenericMetricOutputVo> uniqueVolunteeringDetailsByDay(@RequestParam("day") String day) {
+	@PostMapping("/uniqueVolunteeringDetailsByDay/{day}")
+	public List<GenericMetricOutputVo> uniqueVolunteeringDetailsByDay(@PathVariable(name="day") String day) {
 		List<GenericMetricOutputVo> uniqueVolunteeringDetailsByDay = genericMetricsRepository
 				.uniqueVolunteeringDetailsByDay(day);
 		System.out.println(" uniqueVolunteeringDetailsByDay " + uniqueVolunteeringDetailsByDay.size());
@@ -37,8 +38,8 @@ public class GenericMetricsController {
 		return uniqueVolunteeringDetailsByDay;
 	}
 
-	@PostMapping("/uniqueVolunteeringDetailsByDate")
-	public List<GenericMetricOutputVo> uniqueVolunteeringDetailsByDate(@RequestParam("date") String date) {
+	@PostMapping("/uniqueVolunteeringDetailsByDate/{date}")
+	public List<GenericMetricOutputVo> uniqueVolunteeringDetailsByDate(@PathVariable(name="date") String date) {
 		List<GenericMetricOutputVo> uniqueVolunteeringDetailsByDate = genericMetricsRepository
 				.uniqueVolunteeringDetailsByDate(date);
 		System.out.println(" uniqueVolunteeringDetailsByDate " + uniqueVolunteeringDetailsByDate.size());
@@ -46,8 +47,8 @@ public class GenericMetricsController {
 		return uniqueVolunteeringDetailsByDate;
 	}
 
-	@PostMapping("/uniqueVolunteeringDetailsByMonth")
-	public List<GenericMetricOutputVo> uniqueVolunteeringDetailsByMonth(@RequestParam("month") String month) {
+	@PostMapping("/uniqueVolunteeringDetailsByMonth/{month}")
+	public List<GenericMetricOutputVo> uniqueVolunteeringDetailsByMonth(@PathVariable(name="month") String month) {
 		List<GenericMetricOutputVo> uniqueVolunteeringDetailsByMonth = genericMetricsRepository
 				.uniqueVolunteeringDetailsByMonth(month);
 		System.out.println(" uniqueVolunteeringDetailsByMonth " + uniqueVolunteeringDetailsByMonth.size());
