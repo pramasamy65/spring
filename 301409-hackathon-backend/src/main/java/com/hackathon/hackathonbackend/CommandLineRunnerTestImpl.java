@@ -7,6 +7,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.core.env.Environment;
+import org.springframework.stereotype.Component;
 
 import com.hackathon.hackathonbackend.repo.FileDetailsRepository;
 import com.hackathon.hackathonbackend.utils.AssociateDetailsProcessor;
@@ -15,6 +16,7 @@ import com.hackathon.hackathonbackend.utils.EventSummaryProcessor;
 import com.hackathon.hackathonbackend.utils.FileUpdateChecker;
 import com.hackathon.hackathonbackend.vo.FileModificationDetailsVO;
 
+@Component
 public class CommandLineRunnerTestImpl implements CommandLineRunner {
 
 	@Autowired
