@@ -10,26 +10,21 @@ eureka:
     register-with-eureka: true
     fetch-registry: true
     serviceUrl:
-      defaultZone: http://localhost:9090/eureka/
+      defaultZone: http://localhost:8989/eureka/
 #register url to server    
 
 instance:
   hostname: localhost
 server:
-  port: 8989
-  
+  port: 9090
+
+#  http://localhost:9090/hackFsePortal/hackFseMetricsService/skillstech/hello 
 zuul:
   prefix: /hackFsePortal
   routes:
-#    userAccessService:
-#      path: /userservice/**
-#      service-id: USERACCESSSERVICE
-#    trainingsService:
-#      path: /trainingsService/**
-#      service-id: TRAININGSSERVICE
     hackFseMetricsService:
       path: /hackFseMetricsService/**
       service-id: HACKFSEMETRICSSERVICE
-     
-     
-      
+    sampleMetricsService:
+      path: /sampleMetricsService/**
+      service-id: SAMPLEMETRICSSERVICE

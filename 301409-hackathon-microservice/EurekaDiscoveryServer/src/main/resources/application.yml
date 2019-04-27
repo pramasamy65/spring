@@ -8,4 +8,4 @@ eureka:
 
 # HTTP (Tomcat) port
 server:
-  port: 9090
+  port: 8989

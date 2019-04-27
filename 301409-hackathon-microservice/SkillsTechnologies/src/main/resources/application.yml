@@ -1,7 +1,7 @@
 #Name of the application
 spring:
   application:
-    name: hackFseMetricsService
+    name: sampleMetricsService
 
 #Eureka server url for registering
 #This is eureka client
@@ -10,7 +10,7 @@ eureka:
     register-with-eureka: true
     fetch-registry: true
     serviceUrl:
-      defaultZone: http://localhost:9090/eureka/
+      defaultZone: http://localhost:8989/eureka/
 #register url to server    
 
 instance:
