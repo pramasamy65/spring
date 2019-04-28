@@ -24,3 +24,17 @@
 	* git push -u origin master
 
 	* git pull origin master
+	
+	* git branch -> Get Current Branch
+ 
+	* git branch -a -> List all branches
+ 
+	* git checkout "branch-name"
+	
+	* git remote -v
+
+	* git reset --hard origin/master
+ 
+	* git merge "branch name"
+	
+	* git push origin "new Branch name" -> Push new Branch to Repo
