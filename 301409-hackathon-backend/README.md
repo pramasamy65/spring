@@ -1,51 +1,46 @@
-# spring
+# Spring Boot, Spring MVC with MongoDB Integration, 
 
-https://github.com/deanwong/spring-batch-excel
+## Running Procedure
+	* Run EurekaDiscoveryServer, ZuulService and SkillsTechnologies in the order
+	
+	* http://localhost:9090/hackFsePortal/sampleMetricsService/skillstech/hello 
+	
+	* cd /Users/Softwares/mongodb-osx-x86_64-4.0.8/bin
+	* sudo -s
+	* ./mongod -> Mongodb runs on port 27017
+	
+	* Run 301409-hackathon-backend project
+	* http://localhost:9090/hackFsePortal/hackFseMetricsService/genericMetric/uniqueVolunteeringDetails\
+	* http://localhost:9090/hackFsePortal/hackFseMetricsService/genericMetric/volunteeringEffort
+	
 
+	
+## MongoDB Sample Queries
+	* show dbs -> List all database Name's 
+	* use databaseName -> Switch to particular database
+	* show collections; -> Show Tables
 
-https://jitpack.io/p/deanwong/spring-batch-excel
+	* db.<collectionName>.find();
+	* db.fileModificationdetails.find();
 
-https://www.petrikainulainen.net/programming/spring-framework/spring-batch-tutorial-reading-information-from-an-excel-file/
+	* db.<collection_name>.drop() -> db.fileModificationdetails.drop()
 
-
-4.0.5.RELEASE
-
-<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-mongodb</artifactId>
-		</dependency>
-		
-		
-		
-		https://keyholesoftware.com/2018/05/14/reading-and-writing-from-excel-in-spring-batch/
-		
-		https://github.com/spring-projects/spring-batch-extensions
-		
-		
-show dbs
-
-use databaseName
-
-show collections;
-
-
-db.<collectionName>.find();
-
-db.fileModificationdetails.find();
-
-db.<collection_name>.drop() -> db.fileModificationdetails.drop()
-
-db.eventInformation.update({'employeeId':287469},{$set:{'employeeName':'Rock'}},{multi:true});
-
-db.eventInformation.update({'eventDate':'01-12-18'},{$set:{'eventDate':'01-05-18'}},{multi:true});
+	* db.eventInformation.update({'employeeId':287469},{$set:{'employeeName':'Rock'}},{multi:true});
+	* db.eventInformation.update({'eventDate':'01-12-18'},{$set:{'eventDate':'01-05-18'}},{multi:true});
+	* db.eventInformation.update({'baseLocation':'Chennai'},{$set:{'employeeId':287469}},{multi:true});
 
 
-"baseLocation"
-
-eventInformation
-db.eventInformation.update({'baseLocation':'Chennai'},{$set:{'employeeId':287469}},{multi:true});
-
-
-	Aggregation aggregation = Aggregation.newAggregation(
-				Aggregation.match(Criteria.where("employeeId").lt(99999999)),
-				Aggregation.group("employeeId").addToSet("employeeId").as("employeeId").sum("volunteerHours").as("totalVolunteerHours"));
+## Jenkins Setup
+	* Install Jenkins
+	* http://localhost:8080/
+	
+## Docker Setup
+	* Reference https://www.robasworld.com/spring-boot-with-docker/
+	* Install Docker
+	* Check Docker Version : docker --version
+	
+	* Create Dockerfile in 301409-hackathon-backend project
+	* Go to 301409-hackathon-backend folder
+	
+	* Build Image -> docker build -t spring-docker .
+	* Run Image -> Docker run –p 8080:8080 spring-docker

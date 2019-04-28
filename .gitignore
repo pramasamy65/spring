@@ -3,6 +3,7 @@
 # IDE workspace details
 .settings
 /target
+/bin
 .classpath
 .project
 
