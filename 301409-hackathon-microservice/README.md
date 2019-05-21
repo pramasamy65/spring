@@ -1,7 +1,7 @@
 # Microservices
 
 ## Running Procedure
-	* Refer README FILE - https://github.com/pramasamy65/spring/Hackathon-README.md
+	* Refer README FILE - https://github.com/pramasamy65/spring/blob/master/Hackathon-README.md
 
 ## EurekaDiscoveryServer project
 	* default port of Eureka server:8671 and now configured as 8989

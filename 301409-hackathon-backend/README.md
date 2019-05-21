@@ -3,7 +3,7 @@
 	## Spring Boot, Microservices, Spring MVC with MongoDB Integration
 
 ## Running Procedure
-	* Refer README FILE - https://github.com/pramasamy65/spring/Hackathon-README.md
+	* Refer README FILE - https://github.com/pramasamy65/spring/blob/master/Hackathon-README.md
 	
 ## MongoDB Sample Queries
 	* show dbs -> List all database Name's 
