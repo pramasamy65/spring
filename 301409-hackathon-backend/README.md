@@ -1,19 +1,9 @@
-# Spring Boot, Spring MVC with MongoDB Integration, 
+# Tech Stack 
+	
+	## Spring Boot, Microservices, Spring MVC with MongoDB Integration
 
 ## Running Procedure
-	* Run EurekaDiscoveryServer, ZuulService and SkillsTechnologies in the order
-	
-	* http://localhost:9090/hackFsePortal/sampleMetricsService/skillstech/hello 
-	
-	* cd /Users/Softwares/mongodb-osx-x86_64-4.0.8/bin
-	* sudo -s
-	* ./mongod -> Mongodb runs on port 27017
-	
-	* Run 301409-hackathon-backend project
-	* http://localhost:9090/hackFsePortal/hackFseMetricsService/genericMetric/uniqueVolunteeringDetails\
-	* http://localhost:9090/hackFsePortal/hackFseMetricsService/genericMetric/volunteeringEffort
-	
-
+	* Refer README FILE - https://github.com/pramasamy65/spring/Hackathon-README.md
 	
 ## MongoDB Sample Queries
 	* show dbs -> List all database Name's 
