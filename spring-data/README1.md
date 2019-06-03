@@ -7,10 +7,10 @@
  * Download Derby  -  db-derby-10.14.2.0-bin.zip
  * Start Server : ./startNetworkServer (in BIN Folder)
  * Start Client : ./ij (in BIN Folder)
-  * connect 'jdbc:derby://localhost:1527/db;create=true';
-  * CREATE TABLE test (id integer);
-  * insert into test values(1);
-  * insert into test values(100);
+	* connect 'jdbc:derby://localhost:1527/db;create=true';
+	* CREATE TABLE test (id integer);
+	* insert into test values(1);
+	* insert into test values(100);
 		
 		
 ### STEP 2 : Normal JDBC(Without Spring)- **Refer - JdbcWithoutSpring.java**
