@@ -12,7 +12,6 @@
 	* insert into test values(1);
 	* insert into test values(100);
 		
-		
 ### STEP 2 : Normal JDBC(Without Spring)- **Refer - JdbcWithoutSpring.java**
  * https://github.com/pramasamy65/spring/blob/master/spring-data/src/main/java/com/java/handson/spring_data1/JdbcWithoutSpring.java
  * JDBC technology exceptions are checked, so we must use try, catch blocks in the code at various places which increases the complexity of the application
@@ -25,19 +24,24 @@
  * Spring-JDBC layer will take cares about connection management and error managements, and programmers will concentrate on their logics
  * Spring framework has provided an exception translator and it translates the checked exceptions obtained using JDBC to un-checked exceptions of spring type
  * So developerss get unchecked exceptions which is not required to handle
-
+ ---
  * Java application can get connection with database using following 2 ways
-  * By using java.sql.DriverManager [ Class ]
-  * By using javax.sql.DataSource [ Interface ]
- 
+	* By using java.sql.DriverManager [ Class ]
+	* By using javax.sql.DataSource [ Interface ]
+ ---
  * 2 implementation classes of DataSource interface, So Spring framework uses these implementations to obtain the connection with database internally
-  * Org.springframework.jdbc.datasource.DriverManagerDataSource [ class ]
-  * Org.apache.commons.dbcp.BasicDataSource [ class ]
- 
+	* Org.springframework.jdbc.datasource.DriverManagerDataSource [ class ]
+	* Org.apache.commons.dbcp.BasicDataSource [ class ]
+ ---
  * In above 2 classes DriverManagerDataSource is given by spring framework and it is equal to DriverManager class
  * It means spring framework internally opens a new connection and closes the connection for each operation done on the database
  * BasicDataSource is given by apache, and this is better than DriverManagerDataSource because BasicDataSource having inbuilt connection pooling implementation
- 
+ ---
+ * JdbcTemplate class provided the following 3 type of methods to execute SQL operations on the database
+	* execute()
+	* update()
+	* query() methods….
+---
 ### STEP 3 : JDBC With Spring using org.springframework.jdbc.datasource.DriverManagerDataSource - 
 **Refer - JdbcWithSpring.java and spring-config1.xml**
  * Just Injecting Datesouce from xml
@@ -51,8 +55,8 @@
  * https://github.com/pramasamy65/spring/blob/master/spring-data/src/main/java/com/java/handson/spring_data1/JdbcWithSpring.java
  * https://github.com/pramasamy65/spring/blob/master/spring-data/src/main/resources/spring-config1.xml
  * Connection pool properties
-  * property name="initialSize" value="2"
-  * property name="maxActive" value="5"
+	* property name="initialSize" value="2"
+	* property name="maxActive" value="5"
 	
 ### STEP 5 : Using JdbcTemplate - **Refer : JdbcTemplateDaoImpl.java**
  * https://github.com/pramasamy65/spring/blob/master/spring-data/src/main/java/com/java/handson/spring_data1/JdbcTemplateDaoImpl.java
@@ -86,12 +90,11 @@
 	
 ### STEP 13 : Named Parameter JDBC Template **Refer : JdbcTemplateDaoImpl3.java**
  * https://github.com/pramasamy65/spring/blob/master/spring-data/src/main/java/com/java/handson/spring_data1/JdbcTemplateDaoImpl3.java
-
  * Question Mark place holder - Re-arrange the parameters each and every time when new params added
  * NamedParameterJdbcTemplate
-  * Support both Question Mark place holder and Named Parameters
+	* Support both Question Mark place holder and Named Parameters
  * JdbcTemplate
-  * Supports only Named Parameters
+	* Supports only Named Parameters
  * SimpleJdbcTemplate	
 	
 ### STEP 14 : org.springframework.jdbc.core.support.JdbcDaoSupport **REFER JdbcDaoSupportImpl.java**
