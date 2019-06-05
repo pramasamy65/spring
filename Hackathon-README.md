@@ -19,15 +19,15 @@
 	* java -jar target/301409-hackathon-backend-0.0.1-SNAPSHOT.jar
 
 ## Test the services using below URL
- * Sample Service - http://localhost:9090/hackFsePortal/sampleMetricsService/skillstech/hello
+ * Sample Dummy Service
+	* http://localhost:9090/hackFsePortal/sampleMetricsService/skillstech/hello
 	
  * Sample Service Using Zull and Eureka Service Concept
-
- * http://localhost:9090/hackFsePortal/hackFseMetricsService/genericMetric/uniqueVolunteeringDetails
- * http://localhost:9090/hackFsePortal/hackFseMetricsService/genericMetric/volunteeringEffort
- * http://localhost:9090/hackFsePortal/hackFseMetricsService/participationMetrics/headCount
- * http://localhost:9090/hackFsePortal/hackFseMetricsService/participationMetrics/uniqueVolunteeringDetailsByLocation
- * http://localhost:9090/hackFsePortal/hackFseMetricsService/participationMetrics/uniqueVolunteeringDetailsByBU
+	* http://localhost:9090/hackFsePortal/hackFseMetricsService/genericMetric/uniqueVolunteeringDetails
+	* http://localhost:9090/hackFsePortal/hackFseMetricsService/genericMetric/volunteeringEffort
+	* http://localhost:9090/hackFsePortal/hackFseMetricsService/participationMetrics/headCount
+	* http://localhost:9090/hackFsePortal/hackFseMetricsService/participationMetrics/uniqueVolunteeringDetailsByLocation
+	* http://localhost:9090/hackFsePortal/hackFseMetricsService/participationMetrics/uniqueVolunteeringDetailsByBU
 	
 ## Running procedure Frond End 
  * 301409-hackathon-frontend -> https://github.com/pramasamy65/angular/tree/master/301409-hackathon-frontend
@@ -37,7 +37,8 @@
 	
 ## If any Errors while compiling and building the frond end code then Follow the below steps
 	
-### Error 1 : Access to XMLHttpRequest at 'http://localhost:9090/hackFsePortal/hackFseMetricsService/participationMetrics/headCount' 
+### Error 1 : 
+ * Access to XMLHttpRequest at 'http://localhost:9090/hackFsePortal/hackFseMetricsService/participationMetrics/headCount' 
 	from origin 'http://localhost:4200' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
- * Resolution : Install CORS extension in chrome and try again
+	* Resolution : Install CORS extension in chrome and try again
 	
