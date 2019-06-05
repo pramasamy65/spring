@@ -12,9 +12,9 @@
 	* SkillsTechnologies project - Sample Micro service
 		
 ### spring-basics
- *https://github.com/pramasamy65/spring/tree/master/spring-basics
-	* Spring Dependency Injection
-	* Spring Setter based & Constructor Based Injection
+ * https://github.com/pramasamy65/spring/tree/master/spring-basics
+ * Spring Dependency Injection
+ * Spring Setter based & Constructor Based Injection
 	
 ### spring-data
  * https://github.com/pramasamy65/spring/tree/master/spring-data
