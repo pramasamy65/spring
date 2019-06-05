@@ -13,11 +13,11 @@
 		
 ### spring-basics
  * https://github.com/pramasamy65/spring/tree/master/spring-basics
- * Spring Dependency Injection
- * Spring Setter based & Constructor Based Injection
 	
 ### spring-data
  * https://github.com/pramasamy65/spring/tree/master/spring-data
+ * JDBC and Spring JDBC Concepts : https://github.com/pramasamy65/spring/blob/master/spring-data/README1.md
+ * Spring With Hibernate : https://github.com/pramasamy65/spring/blob/master/spring-data/README2.md
 
 ### spring-security
  * https://github.com/pramasamy65/spring/tree/master/spring-security

@@ -1,8 +1,8 @@
 # Spring Basics Concepts 2
 
 ### Program (com.java.handson.spring_basics2)
-
-* STEP 1 : Initializing Collections  - List
+ * https://github.com/pramasamy65/spring/tree/master/spring-basics/src/main/java/com/java/handson/spring_basics2
+ * STEP 1 : Initializing Collections  - List
 	
 	```
 	<bean id="messenger" class="....Messenger">
@@ -52,13 +52,16 @@
 	```
 
 * STEP 5 : Auto wiring by name - Reference : spring-config2.xml
+	* https://github.com/pramasamy65/spring/blob/master/spring-basics/src/main/resources/spring-config2.xml
 	* If no bean is found by name then nothing will be injecting and on accessing the Object/property will get NPE
 
 * STEP 6 : Auto wiring by type - Reference : spring-config2.xml
+	* https://github.com/pramasamy65/spring/blob/master/spring-basics/src/main/resources/spring-config2.xml
 	* if two types are found then it will throw "No unique bean of type" Exception
 	* If no bean is found by type then nothing will be injecting and on accessing the Object/property will get NPE
 
 * STEP 7 : Auto wiring by constructor - Reference : spring-config2.xml
+	* https://github.com/pramasamy65/spring/blob/master/spring-basics/src/main/resources/spring-config2.xml
 	* If no unique/single bean is found by type and name then nothing will be injecting and on accessing the Object/property will get NPE
 	* By Default constructor looks for Simlar Type based injection
 	* Only one type is found then it will inject the dependency
@@ -110,7 +113,7 @@
 	
 	
 ### Concepts (com.java.handson.spring_basics2)
-
+* https://github.com/pramasamy65/spring/tree/master/spring-basics/src/main/java/com/java/handson/spring_basics2
 * STEP 5- 7 : Auto Wiring
 	* By default there is no auto wiring
 	* Auto wiring Good for small amount of coding
