@@ -1,6 +1,30 @@
 # Spring-MVC
 
-https://app.pluralsight.com/player?course=springmvc-intro&author=bryan-hansen&name=springmvc-m1-intro&clip=2&mode=live
+* Annotations
+
+  * | XML Tag                       | Annotation       | Description                                                  |
+    | ----------------------------- | ---------------- | ------------------------------------------------------------ |
+    | <context:component-scan/>     | @ComponentScan() | Scan starts from base package and registers all controllers, repositories, service, beans, etc. |
+    | <mvc:annotation-driven/>      | @EnableWebMvc    | Enable Spring MVC-specific annotations like @Controller      |
+    | Spring config file - XML file | @Configuration   | Treat as the configuration file for Spring MVC-enabled applications. |
+
+* MVC-specific annotations
+
+  * @Controller
+  
+    * ​	How spring knows that where is the controller classes are defined?. We have to add a simple line at the start of spring configuration file.
+  
+      ```
+      <context:component-scan base-package="package.name" />
+      ```
+  
+  * @InitBinder
+  
+  * @RequestMapping
+  
+  * @RequestParam
+  
+  * @SessionAttributes
 
 http://localhost:8080/springmvc/addGoal
 
@@ -11,11 +35,11 @@ What is Spring MVC ?
 	Based on Front controller pattern(Dispatcher servlet)
 	Build from shortcomings of Struts 1
 	Spring MVC can be REST based/ JSP based
-	
+
 Architecture
 
 	Spring MVC/Spring frameworks are based on Java servlets/J2EE
-	
+
 Request/Response LifeCycle
 
 	Incoming Request->Front Controller-> Delegate Request to CONTROLLER
@@ -31,7 +55,7 @@ Vocabulary
 	RequestMapping - URL mapping and request type the method is tied to 
 	ViewResolver - Map to respective views(JSP or other technology)
 	Bean - Spring configured POJO
-	
+
 Spring MVC
 
 	Web framework build around the principles of Spring
@@ -54,7 +78,7 @@ Annotations
 	view -> ${Key}
 	ModelView
 	InternalResourceViewResolver -> Prefix and Suffix
-	
+
 Components
 
 	@Controllers
@@ -69,7 +93,7 @@ Components
 	@Repository
 		Database/storage/Transactions related stuffs
 		Will transform DB related error to Spring related errors
-	
+
 Tags - Spring tags
 	
 	JSP - Used to embed Java code inside HTML with the help of JSTL
@@ -102,7 +126,7 @@ Tags - Spring tags
 					Forms attributes will be mapped to model object in controller
 			Controller 
 				public String addMinutes(@ModelAttribute("exercise") Exercise exercise) {}
-				
+
 Externalize the String in JSP pages Using Message tag
 
 		Include Spring tags <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
@@ -110,22 +134,23 @@ Externalize the String in JSP pages Using Message tag
 		<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
 			<property name="basename" value="messages" /></bean> 
 			Value is file name like messages.properties
-			
-	
+
+
+​	
 Views
 
 	WEB-INF/jsp/... -> Security reasons -> access by routed through our applications via controller
 	Multiple view resolvers available 
 		Tiles view Resolver
 		contentNegoatingViewResolver
-
+	
 	forward
 		@RequestMapping("/addMinutes")
 			forward:addMoreMinutes
 		@RequestMapping("/addMoreMinutes") 
 			Internally it will redirect to another resource. client doesn't know about the change
 			there is no change in the url to the end user
-
+	
 	redirect
 		@RequestMapping("/addMinutes")
 			redirect:addMoreMinutes
@@ -134,7 +159,7 @@ Views
 			
 	Resolving static files
 		<mvc:resources location="/WEB-INF/pdfs/" mapping="/static/**/"></mvc:resources> --> loading static resources
-			
+
 Interceptors
 
 	Registered part of the request lifecycle
@@ -146,7 +171,7 @@ Interceptors
 		Config <bean id="localeResolver" class="org.springframework.web.servlet.i18n.sessionLocaleResolver"
 					p:defaultLocale="en"></bean>
 		Above line will be used to select the current locale used for current session
-	
+
 Spring Internationalization using interceptor
 
 	<mvc:interceptors>
@@ -155,13 +180,13 @@ Spring Internationalization using interceptor
 			<property name="paramName" value="language" />
 		</bean>
 	</mvc:interceptors>
-	
+
 Spring form tags
 
 	Checkbox, form, hidden, input, label, 
 	Bind objects from our model into Views
 	Easily bind errors
-	
+
 @SessionAttributes("goal")
 
 	When developing web applications, we often need to refer to the same attributes in several views. For example, 
@@ -189,7 +214,7 @@ Spring form tags
 	
 	@ModelAttribute - Method Argument
 		model attribute is populated with data from a form submitted
-	
+
 Validation
 
 	Constraint validation -> Like fields validation. password, email format etc...
@@ -211,7 +236,7 @@ Validation
 <mvc:annotation-driven /> or @EnableWebMvc
 	
 	Supports MVC related annotations like @RequestMapping, @ResponseBody, @RequestBody
-	
+
 <context:annotation-config />
 	
 	Wire/Inject them if its registered
@@ -223,24 +248,24 @@ Validation
 		AutowiredAnnotationBeanPostProcessor : @Autowired, @Value, @Inject, @Qualifier, etc
 		RequiredAnnotationBeanPostProcessor : @Required annotation
 		PersistenceAnnotationBeanPostProcessor :@PersistenceUnit and @PersistenceContext annotations
-	
+
 <context:component-scan> or @ComponentScan(basepackages={... , ...})
 	
 	Create Beans and wire/inject them automatically
 	Register the bean + Activates the Bean
 	<context:component-scan> = <context:annotation-config>+Bean Registration
-	
+
 @RequestBody and @ResponseBody
 	
 	Object serialization(@ResponseBody) and deserialization(@RequestBody)
 	Will help to avoid boiler-plate code for message conversion
 	These annotations used to convert the request and response on the fly using Message Converters
- 	
+	 	
 	@RequestBody or @ResponseBody annotations loops through all registered HttpMessageConverters seeking for the 
 	 first  that fits the given mime type and class and then uses it for the actual conversion
 	 
 	 Whenever you use the @ResponseBody, @RequestBody annotation you will be using a HttpMessageConverter 
-	
+
 HTTP Message Converters(HMC)
 
 	Spring Receive request from client -> See content-type header(MIMIE Type) -> HMC will convert to Java 
@@ -267,7 +292,7 @@ Customizing HttpMessageConverters with Spring MVC
 	
 	@EnableWebMvc annotation, it automatically registered default Http message converters with application as 
 	listed above according to available library in the class path
-	
+
 ContentNegotiatingViewResolver
 	
 	Will be used to return different return types with same code
@@ -277,7 +302,7 @@ ContentNegotiatingViewResolver
 	
 	Basically we are using internal view resolver and in additional to that we can use 
 	JSON/XML based content View Resolvers
-	
+
    CNVR Option 1 – using the extension	
 	
 	servlet-config.xml
@@ -328,43 +353,43 @@ ContentNegotiatingViewResolver
 	
 	With an established media type, the CNVR looks for an appropriate view resolver/view bean to produced the 
 	requested media type
-	
+
    CNVR Option 2 – using a URL parameter
-   
+
    	URL query parameter (called format by default) is provided in the request, then the parameter value in the request 
 	is used to select the media type of the request in the mediaList
 	
 	http://localhost:8080/springmvc/activities?format=json will return JSON contnet 
 	http://localhost:8080/springmvc/activities?format=xml will return XML content
-
+	
 	... per original configuration
 	
 	<property name="mediaTypes">
-    	<map>
-     	 	<entry key="json" value="application/json" />
-      		<entry key="xml" value="application/xml" />
-      		<entry key="request" value="text/html" />
-    	</map>
+		<map>
+	 	 	<entry key="json" value="application/json" />
+	  		<entry key="xml" value="application/xml" />
+	  		<entry key="request" value="text/html" />
+		</map>
  	</property>
   	<property name="favorPathExtension" value="false" />
   	<property name="favorParameter" value="true" />
   	<property name="defaultViews">
 	
 	... per original configuration
-	
+
    Option 3 – use the accept header
-   
+
    	HTTP request’s accept header to determine the appropriate response content.  
 	If the CNVR’s ignoreAcceptHeader parameter is set to false (true by default)
 	
 	... per original configuration
-   
-    	<property name="order" value="1" />
+	   
+		<property name="order" value="1" />
   	<property name="ignoreAcceptHeader" value="false" />
   	<property name="defaultViews">
 	
 	... per original configuration
-	
+
 Using Jquery
 	
 	JQuery will be used to Easily consumes JSON data and Create HTML pages on the Fly
@@ -390,5 +415,6 @@ Using Jquery
 	</script>
 	
 	<td><form:select id="activities" path="activity"></form:select></td>
-	
-	
+
+
+​	
