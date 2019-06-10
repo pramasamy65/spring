@@ -25,6 +25,24 @@
   * @RequestParam
   
   * @SessionAttributes
+  
+* `org.springframework.web.bind.annotation.RequestMapping` annotation is used to map web requests onto specific handler classes and/or handler methods
+
+* @ResponseBody
+
+  * spring will try to convert its return value and write it to the http response automatically
+
+* @RequestBody
+
+  * spring will try to convert the content of the incoming request body to your parameter object on the fly
+
+* ## Spring doing behind the scenes
+
+  * They are annotations of the spring mvc framework and can be used in a controller to implement smart object serialization and deserialization
+  * Every time an issued request is hitting a @RequestBody or @ResponseBody annotation spring loops through all registered HttpMessageConverters seeking for the first that fits the given mime type and class and then uses it for the actual conversion
+  * spring has a list of [HttpMessageConverters](http://static.springsource.org/spring/docs/3.2.x/javadoc-api/org/springframework/http/converter/HttpMessageConverter.html) registered in the background
+  * A HttpMessageConverters responsibility is to convert the request body to a specific class and back to the response body again, depending on a predefined [mime type](http://de.wikipedia.org/wiki/Multipurpose_Internet_Mail_Extensions). 
+  * 
 
 http://localhost:8080/springmvc/addGoal
 
