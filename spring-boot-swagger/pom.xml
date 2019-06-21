@@ -28,14 +28,14 @@
 	</properties>
 
 	<dependencies>
-	
-	
+
+
 		<dependency>
-        <artifactId>guava</artifactId>
-        <groupId>com.google.guava</groupId>
-        <type>jar</type>
-        <version>15.0</version>
-</dependency>
+			<artifactId>guava</artifactId>
+			<groupId>com.google.guava</groupId>
+			<type>jar</type>
+			<version>15.0</version>
+		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
