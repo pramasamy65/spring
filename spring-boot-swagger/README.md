@@ -55,7 +55,7 @@
 
   * Method annotated with @Bean will return an object that should be registered as a bean in the Spring application context
 
-  * **Method name** is annotated with @Bean works as bean ID and it creates and returns the actual bean
+  * **Method name** is annotated with @Bean works as **bean ID** and it creates and returns the actual bean
 
     ```java
     package com.test;
@@ -115,9 +115,42 @@
   }
   ```
 
+### Difference between @Component, @Service, @Controller, and @Repository in Spring
 
+* Major difference between these stereotypes is they are used for different classification
+* Provide better Modularity to the Enterprise application
+* In a multitier application, we will have different layers like presentation, service, business, data access etc
+  * @Service – Service layer level
+    * Service Hold business Logic, Calculations etc.
+  * @Controller – presentatione layer level
+    * Controllers just do stuff like dispatching, forwarding, calling service methods etc.
+    * Classes annotated with this, are intended to receive a request from the client side. The first request comes to the Dispatcher Servlet, from where it passes the request to the particular controller using the value of `@RequestMapping` annotation
+  * @Repository – persistence layer level
+    * Are the DAOs (Data Access Objects), they access the database directly
 
+* **@Service, @Controller, @Repository = {@Component + some more special functionality}**
+* 
 
+### @RestController
+
+* Combines @Controller and @ResponseBody
+* Every request handling method of the controller class automatically serializes return objects into *HttpResponse*
+
+* 
+
+#### @Component
+
+##### @Component Vs @Bean
+
+* @Component **auto detects** and configures the beans using classpath scanning whereas @Bean **explicitly declares** a single bean, rather than letting Spring (IOC container) do it automatically
+* @Component **does not decouple** the declaration of the bean from the class definition where as @Bean **decouples** the declaration of the bean from the class definition
+* @Component is a **class level annotation** where as @Bean is a **method level annotation** and name of the method serves as the bean name
+* @Component **need not to be used with the @Configuration** annotation where as @Bean annotation has to be **used within the class which is annotated with @Configuration**
+* @Component has **different specializations** like @Controller, @Repository and @Service whereas @Bean has **no specializations**
+
+## Topics Covered
+
+* Swagger, @Configuration, @Bean, @Component, 
 
 ----
 
