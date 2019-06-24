@@ -425,9 +425,74 @@ public Response validateUser(
 	}
 ```
 
+#### MultiValueMap
+
+
+
 #### RestFul Webservice Exception Handling
 
 
 
+#### ResponseEntity
+
+
+
+
+
+-----
+
+---
+
+Junk
+
+
+
+@ResponseBody
+
+@RestController
+
+mvc:annotation-driven
+
+context:annotation-config
+
+context:component-scan
+
+mvc:annotation-driven
+
+EnableAutoConfiguration
+
+@EnableWebMvc
+
+
+RequestParam
+
+MatrixVariable
+
+FormParam
+
+@ResponseStatus
+
 MultiValueMap
+
+RestFul Webservice Exception Handling
+
+ResponseEntity
+
+@RestControllerAdvice
+
+
+@ExceptionHandler
+
+
+
+
+https://www.javacodegeeks.com/2012/11/spring-mvc-rest-calls-with-ajax.html
+
+https://www.javacodegeeks.com/2013/07/spring-mvc-requestbody-and-responsebody-demystified.html
+
+
+
+
+
+
 

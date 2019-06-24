@@ -39,10 +39,14 @@ public class StudentDetailsController {
 	@ApiOperation(value = "Dispaly the Student Details based on Given Name", response = Student.class)
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "OK Developer. You are awesome"),
 			@ApiResponse(code = 404, message = "The resource not found") })
-	public List<Student> getStudentDetails(@PathVariable("name") String name) {
+	public List<Student> getStudentDetails(@PathVariable("name") String name) throws RecordNotFoundException {
 		System.out.println(name);
-		List<Student> list = studentList.stream().filter(s -> s.getName().equals(name)).collect(Collectors.toList());
+		List<Student> list = studentList.stream().filter(s -> s.getName().equalsIgnoreCase(name))
+				.collect(Collectors.toList());
 		System.out.println(list);
+		if (list == null || list.size() == 0) {
+			throw new RecordNotFoundException("Student REcord Not Found");
+		}
 		return list;
 	}
 
