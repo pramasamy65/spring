@@ -1,4 +1,4 @@
-# Spring Boot Swagger Integration
+# Spring Boot Swagger Integration and REST API Exception Handling
 
 - Refer https://blog.napagoda.com/2017/09/integrating-swagger-with-spring-boot.html
 - Build the Project https://github.com/pramasamy65/spring/tree/master/spring-boot-swagger and hit the following url's
@@ -483,10 +483,20 @@ ResponseEntity
 
 @ExceptionHandler
 
+@Api
+
+@ApiOperation
+
+@ApiResponses
+
+@ResponseStatus
+
 
 
 
 https://www.javacodegeeks.com/2012/11/spring-mvc-rest-calls-with-ajax.html
+
+HttpMessageConverter
 
 https://www.javacodegeeks.com/2013/07/spring-mvc-requestbody-and-responsebody-demystified.html
 

@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.exaple.springboot.swagger.bean.Student;
+import com.exaple.springboot.swagger.config.RecordNotFoundException;
+import com.exaple.springboot.swagger.config.ResourceNotFoundException;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -38,7 +40,7 @@ public class StudentDetailsController {
 	@GetMapping("/details/{name}")
 	@ApiOperation(value = "Dispaly the Student Details based on Given Name", response = Student.class)
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "OK Developer. You are awesome"),
-			@ApiResponse(code = 404, message = "The resource not found") })
+			@ApiResponse(code = 404, message = "Oops. The resource not found") })
 	public List<Student> getStudentDetails(@PathVariable("name") String name) throws RecordNotFoundException {
 		System.out.println(name);
 		List<Student> list = studentList.stream().filter(s -> s.getName().equalsIgnoreCase(name))
@@ -48,6 +50,12 @@ public class StudentDetailsController {
 			throw new RecordNotFoundException("Student REcord Not Found");
 		}
 		return list;
+	}
+
+	@GetMapping("/testexception")
+	@ApiOperation(value = "Testing Exception")
+	public void testException() throws ResourceNotFoundException {
+		throw new ResourceNotFoundException("Test : Exceptions thrown");
 	}
 
 	@PostMapping("/addDetails")

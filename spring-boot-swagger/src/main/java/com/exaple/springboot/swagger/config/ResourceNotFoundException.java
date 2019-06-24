@@ -1,4 +1,4 @@
-package com.exaple.springboot.swagger.controllers;
+package com.exaple.springboot.swagger.config;
 
 public class ResourceNotFoundException extends Exception {
 
