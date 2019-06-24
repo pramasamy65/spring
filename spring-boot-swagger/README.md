@@ -361,28 +361,73 @@
 *  Composed @RequestMapping Variants
   * https://dzone.com/articles/a-guide-to-spring-framework-annotations
 
-----
+#### **@RequestParam** 
 
----
+* RequestParam annotation used for accessing the query parameter values from the request. Look at the following request URL:
 
-Junk 
+```java
+http://localhost:8080/springmvc/hello/101?param1=10&param2=20
+```
 
-https://dzone.com/articles/a-guide-to-spring-framework-annotations
+In the above URL request, the values for param1 and param2 can be accessed as below:
 
-https://examples.javacodegeeks.com/enterprise-java/spring/spring-pathvariable-annotation-example/
+```java
+public String getDetails(
+    @RequestParam(value="param1", required=true) String param1,
+        @RequestParam(value="param2", required=false) String param2){
+...
+}
+```
 
-https://www.javacodegeeks.com/2017/10/differences-requestparam-pathvariable-annotations-spring-mvc.html
+#### **@PathVariable**
 
-https://www.javacodegeeks.com/2017/08/difference-restcontroller-controller-annotation-spring-mvc-rest.html
+* @*PathVariable* identifies the pattern that is used in the URI for the incoming request. Let’s look at the below request URL:
 
-https://www.javacodegeeks.com/2017/11/difference-component-service-controller-repository-spring.html
+  ```java
+  http://localhost:8080/springmvc/hello/101?param1=10&param2=2
+  ```
 
-https://www.javacodegeeks.com/2013/07/spring-mvc-requestbody-and-responsebody-demystified.html
+The above URL request can be written in your Spring MVC as below:
 
-https://www.javacodegeeks.com/2012/11/spring-mvc-rest-calls-with-ajax.html
+```java
+@RequestMapping("/hello/{id}")
+public String getDetails(@PathVariable(value="id") String id,
+    @RequestParam(value="param1", required=true) String param1,
+    @RequestParam(value="param2", required=false) String param2){.......}
+```
 
-https://www.javacodegeeks.com/2019/05/using-responsestatus-http-status-spring.html
+#### **@MatrixVariable**
 
-https://www.baeldung.com/spring-requestmapping
+* Matrix variables can appear in any path segment, each matrix variable separated with a “;” (semicolon)
 
-Spring read post params
+* For example: `"/cars;color=red;year=2012"`
+
+* Multiple values may be either "," (comma) separated `"color=red,green,blue"`or the variable name may be repeated `"color=red;color=green;color=blue"`
+
+  ```java
+  public Response getBooks(@PathParam("year") String year,
+  			@MatrixParam("author") String author,
+  			@MatrixParam("country") String country) {
+    
+  }
+  URI Pattern : /books/2011;author=mkyong;country=malaysia
+  ```
+
+#### @FormParam
+
+```java
+public Response validateUser(
+		@FormParam("username") String userName,
+		@FormParam("password") String password) {
+		return Response.status(200)
+			.entity("addUser is called, name : " + name + ", age : " + age)
+			.build();
+	}
+```
+
+#### RestFul Webservice Exception Handling
+
+
+
+MultiValueMap
+

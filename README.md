@@ -25,11 +25,21 @@
 ### springbootbasics
  * https://github.com/pramasamy65/spring/tree/master/springbootbasics
 
-### springbootjpa
+### Springboot JPA
  * https://github.com/pramasamy65/spring/tree/master/springbootjpa
 
-### springbootwithhibernate
+### Springboot with Hibernate
 * https://github.com/pramasamy65/spring/tree/master/springbootwithhibernate
 
-### springmvc
+### Spring - mvc
 * https://github.com/pramasamy65/spring/tree/master/springmvc
+
+### Swagger with SpringBoot Application
+
+* https://github.com/pramasamy65/spring/tree/master/spring-boot-swagger
+
+  #### Topics Covered
+
+  - Swagger, @EnableSwagger2  @Configuration, @Bean, @Component, @ComponentScan with include and exclude Filters, @Component, @Service, @Controller, and @Repository
+  - @EnableAutoConfiguration, @SpringBootApplication,  @Controller & @ResponseBody, @RestController
+
